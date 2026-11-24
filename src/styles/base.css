@@ -167,24 +167,18 @@ html:not(.js) .nav {
   font-size: 15px;
   min-height: 44px;
 }
-.nav-mark svg {
+.nav-seal {
   flex: none;
-}
-.nav-name {
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity var(--dur-4) var(--ease-out), transform var(--dur-4) var(--ease-out);
-}
-.nav.is-solid .nav-name,
-html:not(.js) .nav-name {
-  opacity: 1;
-  transform: none;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  transform: rotate(-8deg);
 }
 .nav-links {
   display: flex;
   align-items: center;
   gap: clamp(12px, 2.4vw, 32px);
-  font-size: 15px;
+  font-size: var(--fs-5);
 }
 .nav-links a:not(.btn) {
   display: inline-flex;
@@ -200,9 +194,6 @@ html:not(.js) .nav-name {
 
 @media (max-width: 720px) {
   .nav-wide {
-    display: none;
-  }
-  .nav-name {
     display: none;
   }
 }

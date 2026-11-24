@@ -1,28 +1,45 @@
-# Direction contract
+# Direction contract (v2: "Verified")
+
+v1 ("Develop", the camera-pipeline shader) scored 7.3 from a blind juror and was replaced at the owner's
+request: the site should not be built around one project, and must not read as dependence on AI.
 
 ```
-DIRECTION   Develop, chosen over Poster wall and 3D flythrough: only Vinochan built this pipeline
-IDEA        On this site, Vinochan's own hybrid ISP becomes the scroll: his name arrives as a noisy
-            RAW sensor readout and develops, stage by stage, into a clean image.
-            Competitor test: another CS student's portfolio fails, because they did not build or win with this pipeline.
-SURFACES    / → Experience · /404 → Experience (same world)
-FIRST VIEW  The name as a live RGGB mosaic with sensor grain, the plain HTML supporting line, two buttons
-            and a stage readout "1/7 Bayer mosaic". Phone: same, name semi-condensed on two lines.
-LIVE THING  Drag slider over the real Nexus 6 ISO 3200 chess scene: Traditional (18.1 dB) vs Hybrid (25.6 dB),
-            with RAW-as-captured and ground-truth options. Pointer drag plus a range input for keyboard.
-            Without JS: the two images side by side with captions.
-SIGNATURE   Hero shader (raw WebGL, src/develop). Scrolling the pinned hero runs the 7 stages:
-            Bayer mosaic → noise-level map (σ² = 1.1e-2·x + 7.4e-4, the pipeline's own estimate) →
-            neural denoiser → noise-model bound → demosaic → white balance → tone. Ends on the real result
-            (29.84 dB vs 25.40 dB). Fine pointer: a loupe shows the other state under the cursor.
-            Reduced motion / no WebGL / no JS: the plain HTML <h1>.
-PALETTE     ground #111214 · surface #1a1b1e · ink #e7e7e3 · muted #aeada6 · accent #f5a33a (inferno amber)
-            · bound red #e5566f (only inside the shader and the stage figure). palette.mjs: PASS.
-TYPE        Hubot Sans (display, wdth 125% desktop / 87.5% phone, 700) · Mona Sans (text, 400/600). SIL OFL.
-SHAPE       radius 0 · depth by tone steps only (ground → surface)
-IMAGERY     only the project's own figures and screenshots (scripts/export_isp.py, scripts/images.mjs).
-            Treatment: pictures develop in (grain layer lifting off + clip reveal).
-MOTION      tokens in src/styles/motion.css · hero scrub · pinned 7-stage strip (≥1024px) · title rise · slider nudge
-LIFTED      none
-NOT THIS    terminal/hacker-green dev portfolio · centred mesh-gradient SaaS hero · Leasedraw and LegalLens v2 looks
+DIRECTION   Verified: the portfolio that audits itself
+IDEA        On this site, Vinochan's resume is audited the way his LegalLens tool audits a contract:
+            every claim is found in the PDF's text layer with its character range and checked against
+            a receipt. Competitor test: only the person who built a clause-flagging NLP tool frames a
+            resume this way, and the receipts are his alone.
+SURFACES    / → Experience · /404 → Experience (same world: "Claim not found")
+FIRST VIEW  The name set huge, one line on who he is, the hook ("Resumes are easy to inflate, so I
+            audited mine"), Download resume (primary) and the tally card: 7 verified · 2 on request · 1 pending.
+LIVE THING  Every claim in the audit opens its receipt in a dialog (IEEE page, merged PR, test run,
+            benchmark table, live demo, certificates). Without JS the same links are anchors.
+            Second live thing kept from v1: the before/after slider on the ISP's real output.
+SIGNATURE   The audit scene (src/audit.ts). A pinned stage: the real resume page (rendered from the PDF,
+            phone number redacted) is the lens; scrolling moves a camera from claim to claim, the claim is
+            highlighted at its real position, a rubber stamp lands (Verified / On request / Pending /
+            Understated), the log beside it shows the quote, its character range and the finding, and a
+            final seal reads "Audited 25 Nov 2026". Reduced motion: the stamped page sits still beside the
+            full list. No JS: the page image and the list.
+PALETTE     ground #111214 · surface #1a1b1e · ink #e7e7e3 · muted #aeada6 · accent #f5a33a (actions,
+            verified chips, the winning figure) · paper #ffffff · stamp ink #b45309 / #1d1d1f / #6b6a64.
+TYPE        Hubot Sans (display, 700, wdth 125% name / 112.5% titles / 87.5% stamps) · Mona Sans (text,
+            400/600/700; figures with zeros use Mona: Hubot only has a barred zero). SIL OFL.
+SHAPE       radius 0 · depth by tone steps (ground → surface → raise)
+IMAGERY     only real artefacts: the resume page, IEEE Xplore capture, GitHub PR capture, live-demo
+            capture, LegalLens phone and desktop sessions, Neralu console, certificates, ISP outputs.
+MOTION      motion.css tokens · the audit scene · stamp landing (300 ms) and a 2 px thud · title rise ·
+            slider nudge · dialog fade. Lenis on desktop scroll.
+LIFTED      micro-label (inspect --allow micro-label): the uppercase, letter-spaced stamps are the
+            signature device, a real rubber-stamp form on the paper, not interface labels.
+NOT THIS    a terminal/hacker dev portfolio · a SaaS hero · v1's camera-pipeline shader
 ```
+
+## Receipts and how they were made
+
+- Claims and character ranges: `scripts/receipts.py` (pypdfium2) → `src/data/claims.json`.
+- LegalLens test run (99 passed): `public/receipts/legallens-pytest.txt`, run 25 Nov 2026 at ef4192b.
+- ISP numbers: hybrid-isp `results/benchmarks.json` (commit 1e79645).
+- Neralu: merged PR #20, Priyanshu-senapati/Neralu.
+- Paper: IEEE Xplore document 11656530 (public abstract page).
+- Pending receipts: proof of the CV Hackathon 1st place and the Hack4SDG finalist placing (owner to supply).

@@ -42,4 +42,29 @@ if (existsSync(ward)) {
     .png()
     .toBuffer();
   await emit(spliced, "neralu", [800, 1440]);
+  // Phone crop: the ranked list of residents, readable at phone width.
+  const list = await sharp(spliced).extract({ left: 1030, top: 222, width: 410, height: 641 }).png().toBuffer();
+  await emit(list, "neralu-phone", [410, 820]);
+}
+
+// Receipts (scripts/receipts.py, the IEEE capture, the live-demo and PR captures, the real test log).
+const rc = resolve(root, "assets-src", "receipts");
+const receipts = [
+  ["resume-page", [1000, 2000]],
+  ["ieee", [900, 1664]],
+  ["isp-demo", [800, 1440]],
+  ["neralu-pr", [900, 1600]],
+  ["kalpavikas-ideathon", [800, 1600]],
+  ["kalpavikas-applab", [800, 1600]],
+  ["legallens-tests", [800, 1600]],
+];
+for (const [name, widths] of receipts) {
+  const f = resolve(rc, `${name}.png`);
+  if (existsSync(f)) await emit(f, name, widths);
+}
+// LegalLens on a phone: one flagged clause and its note, from a real 390px session.
+const llPhone = resolve(rc, "legallens-phone.png");
+if (existsSync(llPhone)) {
+  const crop = await sharp(llPhone).extract({ left: 0, top: 226, width: 780, height: 960 }).png().toBuffer();
+  await emit(crop, "legallens-phone", [390, 780]);
 }

@@ -1,0 +1,203 @@
+{
+ "page": {
+  "w": 595.2760009765625,
+  "h": 841.8900146484375,
+  "chars": 3080
+ },
+ "claims": [
+  {
+   "id": "isp-win",
+   "text": "Won 1st place (team of 4) at RV University’s Computer Vision Hackathon 2026",
+   "section": "Projects",
+   "start": 406,
+   "end": 481,
+   "status": "request",
+   "receipt": "isp-win",
+   "rects": [
+    {
+     "x": 0.11894,
+     "y": 0.22676,
+     "w": 0.59434,
+     "h": 0.01182
+    }
+   ]
+  },
+  {
+   "id": "isp-demo",
+   "text": "live demo on Hugging Face Spaces",
+   "section": "Projects",
+   "start": 483,
+   "end": 516,
+   "status": "verified",
+   "receipt": "isp-demo",
+   "rects": [
+    {
+     "x": 0.72348,
+     "y": 0.22742,
+     "w": 0.19812,
+     "h": 0.01064
+    },
+    {
+     "x": 0.11894,
+     "y": 0.24149,
+     "w": 0.0484,
+     "h": 0.01064
+    }
+   ]
+  },
+  {
+   "id": "isp-psnr",
+   "text": "29.84 dB PSNR vs 25.40 dB for the traditional pipeline",
+   "section": "Projects",
+   "start": 961,
+   "end": 1016,
+   "status": "verified",
+   "receipt": "isp-psnr",
+   "rects": [
+    {
+     "x": 0.69745,
+     "y": 0.31959,
+     "w": 0.24199,
+     "h": 0.01064
+    },
+    {
+     "x": 0.11894,
+     "y": 0.33392,
+     "w": 0.16858,
+     "h": 0.01051
+    }
+   ]
+  },
+  {
+   "id": "legal-cats",
+   "text": "flags each against 11 risk categories",
+   "section": "Projects",
+   "start": 1183,
+   "end": 1220,
+   "status": "verified",
+   "receipt": "legal-cats",
+   "rects": [
+    {
+     "x": 0.67074,
+     "y": 0.37415,
+     "w": 0.25968,
+     "h": 0.01077
+    }
+   ]
+  },
+  {
+   "id": "legal-tests",
+   "text": "covered by 72 automated tests",
+   "section": "Projects",
+   "start": 1373,
+   "end": 1403,
+   "status": "verified",
+   "receipt": "legal-tests",
+   "rects": [
+    {
+     "x": 0.83427,
+     "y": 0.40504,
+     "w": 0.09991,
+     "h": 0.01063
+    },
+    {
+     "x": 0.11894,
+     "y": 0.41924,
+     "w": 0.11722,
+     "h": 0.01051
+    }
+   ]
+  },
+  {
+   "id": "neralu-final",
+   "text": "Hack4SDG 2026 finalist",
+   "section": "Projects",
+   "start": 1512,
+   "end": 1534,
+   "status": "request",
+   "receipt": "neralu-final",
+   "rects": [
+    {
+     "x": 0.11894,
+     "y": 0.45953,
+     "w": 0.20053,
+     "h": 0.01058
+    }
+   ]
+  },
+  {
+   "id": "neralu-fixes",
+   "text": "fixed escalation rules in the backend (including a new database field), kept private details out of shared API views, and wrote tests for each fix",
+   "section": "Projects",
+   "start": 1721,
+   "end": 1868,
+   "status": "verified",
+   "receipt": "neralu-fixes",
+   "rects": [
+    {
+     "x": 0.36211,
+     "y": 0.4897,
+     "w": 0.54648,
+     "h": 0.01182
+    },
+    {
+     "x": 0.11894,
+     "y": 0.50431,
+     "w": 0.49601,
+     "h": 0.01077
+    }
+   ]
+  },
+  {
+   "id": "paper",
+   "text": "Stock Price Prediction using LSTM Networks: A Multi-feature Time Series Approach",
+   "section": "Publications",
+   "start": 2575,
+   "end": 2655,
+   "status": "verified",
+   "receipt": "paper",
+   "rects": [
+    {
+     "x": 0.18291,
+     "y": 0.71658,
+     "w": 0.62874,
+     "h": 0.0109
+    }
+   ]
+  },
+  {
+   "id": "sih",
+   "text": "Kaavalu submitted, awaiting next-round results",
+   "section": "Achievements",
+   "start": 2936,
+   "end": 2982,
+   "status": "pending",
+   "receipt": "sih",
+   "rects": [
+    {
+     "x": 0.33268,
+     "y": 0.81203,
+     "w": 0.34915,
+     "h": 0.01064
+    }
+   ]
+  },
+  {
+   "id": "kalpavikas",
+   "text": "Participant, Kalpavikas 2.0",
+   "section": "Achievements",
+   "start": 2984,
+   "end": 3011,
+   "status": "verified",
+   "receipt": "kalpavikas",
+   "rects": [
+    {
+     "x": 0.07862,
+     "y": 0.82622,
+     "w": 0.21099,
+     "h": 0.01052
+    }
+   ]
+  }
+ ]
+}

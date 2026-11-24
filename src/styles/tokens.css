@@ -28,7 +28,10 @@
   --c-faint: #5a5853;
   --c-amber: #f5a33a;
   --c-amber-soft: #ffcf9c;
-  --c-bound: #e5566f; /* the noise-model bound's red, from the pipeline's own figures */
+  --c-paper: #ffffff;
+  --c-stamp: #b45309; /* amber ink on paper: 5.0:1 on white */
+  --c-stamp-dark: #1d1d1f;
+  --c-stamp-muted: #6b6a64;
 
   /* semantic */
   --ground: var(--c-ground);
@@ -45,7 +48,8 @@
   --display: "Hubot Sans", "Arial Black", "Helvetica Neue", Arial, sans-serif;
   --text: "Mona Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --fs-1: clamp(3.5rem, 12.6vw, 13.5rem); /* the name */
-  --fs-2: clamp(2.5rem, 7vw, 6.75rem); /* section and project titles, big figures */
+  --fs-2: clamp(2.5rem, 7vw, 6.75rem); /* project titles */
+  --fs-2b: clamp(1.875rem, 1.1rem + 2.6vw, 3.5rem); /* section titles, tally figures */
   --fs-3: clamp(1.25rem, 1rem + 1vw, 1.75rem); /* claims, lede */
   --fs-4: 1.0625rem; /* body */
   --fs-5: 0.875rem; /* captions, meta */
