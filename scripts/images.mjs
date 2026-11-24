@@ -24,6 +24,11 @@ const isp = resolve(root, "assets-src", "isp");
 for (const n of ["raw", "traditional", "hybrid", "truth"]) {
   await emit(resolve(isp, `chess-${n}.png`), `chess-${n}`, [800, 1536]);
 }
+// 2x close-ups for the slider, where the noise difference is visible (made by the crop step in r4)
+for (const n of ["raw", "traditional", "hybrid", "truth"]) {
+  const f = resolve(isp, `chess-${n}-crop.png`);
+  if (existsSync(f)) await emit(f, `chess-${n}-crop`, [768]);
+}
 for (let i = 1; i <= 7; i++) {
   await emit(resolve(isp, `stage-${i}.png`), `stage-${i}`, [320, 512]);
 }
@@ -57,6 +62,7 @@ const receipts = [
   ["kalpavikas-ideathon", [800, 1600]],
   ["kalpavikas-applab", [800, 1600]],
   ["legallens-tests", [800, 1600]],
+  ["legallens-note", [360, 720]],
 ];
 for (const [name, widths] of receipts) {
   const f = resolve(rc, `${name}.png`);

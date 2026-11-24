@@ -28,6 +28,9 @@
     <script>
       document.documentElement.classList.add("js");
     </script>
+    <script type="speculationrules">
+      { "prefetch": [{ "where": { "href_matches": "/*.pdf" }, "eagerness": "moderate" }] }
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -73,10 +76,8 @@
               B.Tech CSE (AI/ML) student at RV University, Bengaluru. I build machine-learning
               systems and ship them as working apps.
             </p>
-            <p class="hook">
-              Resumes are easy to inflate, so I audited mine: ten of its claims, each checked against a
-              receipt you can open.
-            </p>
+            <p class="hook">Resumes are easy to inflate, so I audited mine.</p>
+            <p class="hook-sub">Ten of its claims, each checked against a receipt you can open.</p>
             <div class="actions">
               <a class="btn" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume</a>
               <a class="btn btn-quiet" href="#audit">Watch the audit</a>
@@ -86,13 +87,13 @@
           <aside class="tally" aria-labelledby="tally-title">
             <p id="tally-title" class="tally-title">On the resume</p>
             <ul class="tally-list">
-              <li><a href="#r-isp">Hybrid ISP</a><span>camera pipeline, 1st place</span></li>
-              <li><a href="#r-legal">LegalLens</a><span>contract-risk NLP</span></li>
-              <li><a href="#r-neralu">Neralu</a><span>heatwave calls, Hack4SDG finalist</span></li>
-              <li><a href="#r-kaavalu">Kaavalu</a><span>scam-call guard, SIH entry</span></li>
-              <li><a href="#r-paper">IEEE paper</a><span>LSTM stock prediction</span></li>
+              <li><a href="#r-isp">Hybrid ISP</a><span>camera pipeline, 1st place</span><em class="mini-stamp ms-verified">2 of 3 verified</em></li>
+              <li><a href="#r-legal">LegalLens</a><span>contract-risk NLP</span><em class="mini-stamp ms-verified">2 of 2 verified</em></li>
+              <li><a href="#r-neralu">Neralu</a><span>heatwave calls, Hack4SDG finalist</span><em class="mini-stamp ms-verified">1 of 2 verified</em></li>
+              <li><a href="#r-kaavalu">Kaavalu</a><span>scam-call guard, SIH entry</span><em class="mini-stamp ms-pending">Pending</em></li>
+              <li><a href="#r-paper">IEEE paper</a><span>LSTM stock prediction</span><em class="mini-stamp ms-verified">Verified</em></li>
             </ul>
-            <p class="tally-note">Audit, 25 Nov 2026: <strong>7 of 10 claims verified</strong>, 2 on request, 1 pending.</p>
+            <p class="tally-note">Audit, 25 Nov 2026: <strong>7 of 10 claims verified</strong>, 2 on request, 1&nbsp;pending.</p>
           </aside>
         </div>
       </section>
@@ -103,14 +104,20 @@
           <div class="audit-log">
             <div class="audit-head">
               <h2 id="audit-title" class="section-title">The audit</h2>
-              <p class="audit-intro">
-                Flagged in the format of my LegalLens tool: the matched phrase, its section and its
-                character range, each with a note. Here the note is the receipt.
-              </p>
+              <p class="audit-intro">In the note format of my LegalLens tool. Here every note is a receipt.</p>
               <p class="audit-progress" aria-hidden="true" data-audit-progress></p>
             </div>
             <div class="claims-window" data-claims-window>
               <ol class="claims" data-claims>
+                <li class="claim claim-intro">
+                  <figure class="ll-note">
+                    <picture>
+                      <source type="image/avif" srcset="/img/legallens-note-360.avif 360w, /img/legallens-note-720.avif 720w" sizes="(min-width: 1024px) 30vw, 80vw" />
+                      <img src="/img/legallens-note-360.webp" srcset="/img/legallens-note-360.webp 360w, /img/legallens-note-720.webp 720w" sizes="(min-width: 1024px) 30vw, 80vw" width="720" height="580" loading="lazy" decoding="async" alt="A LegalLens note on a contract clause: High, review closely; Automatic renewal; Matched 'renews automatically'; section 2.1, characters 407 to 606." />
+                    </picture>
+                    <figcaption>LegalLens, flagging a contract clause. Below, the same note on my resume.</figcaption>
+                  </figure>
+                </li>
                 <li class="claim" data-claim="isp-win" data-status="request">
                   <p class="claim-status s-request">On request, ask me for it</p>
                   <blockquote class="claim-text">“Won 1st place (team of 4) at RV University’s Computer Vision Hackathon 2026”</blockquote>
@@ -181,6 +188,12 @@
                   <p class="claim-loc">§ Achievements, characters 2984–3011</p>
                   <a class="claim-link" href="#receipt-kalpavikas" data-receipt="kalpavikas">Open the receipt</a>
                 </li>
+                <li class="claim claim-summary">
+                  <p class="claim-status s-verified">Audit complete</p>
+                  <p class="claim-text">7 verified, 2 on request, 1 pending.</p>
+                  <p class="claim-finding">Every receipt is with its project below.</p>
+                  <a class="claim-link" href="#work">Go to the projects</a>
+                </li>
               </ol>
             </div>
           </div>
@@ -202,7 +215,7 @@
       <!-- ============ PROJECTS WITH RECEIPTS ============ -->
       <section id="work" class="work" aria-labelledby="work-title">
         <div class="wrap work-head">
-          <h2 id="work-title" class="section-title">Projects, with receipts</h2>
+          <h2 id="work-title" class="work-title">Projects, with receipts</h2>
           <p>Four projects from 2026, newest first. Team projects say who did what.</p>
         </div>
 
@@ -217,24 +230,24 @@
           <figure class="compare" data-compare>
             <div class="compare-frame">
               <div class="compare-side compare-left">
-                <picture data-left="traditional" hidden>
-                  <source type="image/avif" srcset="/img/chess-traditional-800.avif 800w, /img/chess-traditional-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-traditional-800.webp" srcset="/img/chess-traditional-800.webp 800w, /img/chess-traditional-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Low-light chess pieces processed by a traditional camera pipeline: grainy, with coloured noise." />
+                <picture data-left="traditional">
+                  <source type="image/avif" srcset="/img/chess-traditional-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-traditional-crop-768.webp" srcset="/img/chess-traditional-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="Low-light chess pieces processed by a traditional camera pipeline: grainy, with coloured noise." />
                 </picture>
-                <picture data-left="raw">
-                  <source type="image/avif" srcset="/img/chess-raw-800.avif 800w, /img/chess-raw-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-raw-800.webp" srcset="/img/chess-raw-800.webp 800w, /img/chess-raw-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The same scene as the sensor captured it: very dark and noisy." />
+                <picture data-left="raw" hidden>
+                  <source type="image/avif" srcset="/img/chess-raw-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-raw-crop-768.webp" srcset="/img/chess-raw-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The same scene as the sensor captured it: very dark and noisy." />
                 </picture>
                 <picture data-left="truth" hidden>
-                  <source type="image/avif" srcset="/img/chess-truth-800.avif 800w, /img/chess-truth-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-truth-800.webp" srcset="/img/chess-truth-800.webp 800w, /img/chess-truth-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The clean reference image of the same scene." />
+                  <source type="image/avif" srcset="/img/chess-truth-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-truth-crop-768.webp" srcset="/img/chess-truth-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The clean reference image of the same scene." />
                 </picture>
-                <p class="compare-label compare-label-left" data-left-label>Sensor RAW, as captured</p>
+                <p class="compare-label compare-label-left" data-left-label>Traditional ISP <b>18.1 dB</b></p>
               </div>
               <div class="compare-side compare-right">
                 <picture>
-                  <source type="image/avif" srcset="/img/chess-hybrid-800.avif 800w, /img/chess-hybrid-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-hybrid-800.webp" srcset="/img/chess-hybrid-800.webp 800w, /img/chess-hybrid-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The same scene processed by the hybrid pipeline: cleaner, with natural colour." />
+                  <source type="image/avif" srcset="/img/chess-hybrid-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-hybrid-crop-768.webp" srcset="/img/chess-hybrid-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The same scene processed by the hybrid pipeline: cleaner, with natural colour." />
                 </picture>
               </div>
               <p class="compare-label compare-label-right">Hybrid <b>25.6 dB</b></p>
@@ -244,13 +257,13 @@
             <div class="compare-controls" hidden data-compare-controls>
               <fieldset class="seg">
                 <legend>Compare the hybrid with</legend>
-                <label><input type="radio" name="left" value="raw" checked /> <span>Sensor RAW</span></label>
-                <label><input type="radio" name="left" value="traditional" /> <span>Traditional</span></label>
+                <label><input type="radio" name="left" value="traditional" checked /> <span>Traditional</span></label>
+                <label><input type="radio" name="left" value="raw" /> <span>Sensor RAW</span></label>
                 <label><input type="radio" name="left" value="truth" /> <span>Ground truth</span></label>
               </fieldset>
               <p class="compare-hint">Drag across the photo</p>
             </div>
-            <figcaption>See it yourself: a dark phone RAW (Nexus 6, ISO 3200, a test scene the model never saw) and what the hybrid pipeline makes of it. Switch to Traditional to compare pipelines; PSNR is measured on this photo against the clean reference.</figcaption>
+            <figcaption>See it yourself, at 2× zoom: the same dark phone RAW (Nexus 6, ISO 3200, a test scene the model never saw) through a traditional pipeline and through the hybrid one. Look at the coloured speckle on the board. PSNR for the whole photo, against the clean reference.</figcaption>
           </figure>
 
           <div class="receipts receipts-isp">
@@ -307,12 +320,10 @@
             <div class="legal-left">
             <figure class="legal-shot">
               <picture>
-                <source media="(max-width: 640px)" type="image/avif" srcset="/img/legallens-phone-390.avif 390w, /img/legallens-phone-780.avif 780w" sizes="92vw" />
-                <source media="(max-width: 640px)" type="image/webp" srcset="/img/legallens-phone-390.webp 390w, /img/legallens-phone-780.webp 780w" sizes="92vw" />
-                <source type="image/avif" srcset="/img/legallens-800.avif 800w, /img/legallens-1536.avif 1536w" sizes="(min-width: 1024px) 58vw, 92vw" />
-                <img src="/img/legallens-800.webp" srcset="/img/legallens-800.webp 800w, /img/legallens-1536.webp 1536w" sizes="(min-width: 1024px) 58vw, 92vw" width="1536" height="674" loading="lazy" decoding="async" alt="LegalLens results: clause 2.1 'Your Subscription renews automatically' underlined, with a note: High, review closely; Automatic renewal; matched 'renews automatically'; characters 407 to 606." />
+                <source type="image/avif" srcset="/img/legallens-phone-390.avif 390w, /img/legallens-phone-780.avif 780w" sizes="(min-width: 1024px) 420px, 92vw" />
+                <img src="/img/legallens-phone-390.webp" srcset="/img/legallens-phone-390.webp 390w, /img/legallens-phone-780.webp 780w" sizes="(min-width: 1024px) 420px, 92vw" width="780" height="960" loading="lazy" decoding="async" alt="LegalLens results: clause 2.1 'Your Subscription renews automatically' underlined, with a note: High, review closely; Automatic renewal; matched 'renews automatically'; characters 407 to 606." />
               </picture>
-              <figcaption>A real session: each flag shows the matched phrase, the category and its character range.</figcaption>
+              <figcaption>A real session on a phone: the matched phrase is underlined, and the note gives the category and its character range.</figcaption>
             </figure>
             <div class="legal-left-body">
               <h4 class="sub">What I built</h4>
@@ -385,6 +396,10 @@
             <div class="neralu-part">
               <h4 class="sub">My part</h4>
               <p>Debugging and UI through the build. At the finale I fixed four things a judge could find: a help key that did not always escalate, private details showing in shared API views, pilot reset and erasure, and a missing visit timeout (a new database field). One commit and test each.</p>
+              <div class="actions">
+                <a class="btn btn-quiet" href="https://github.com/Priyanshu-senapati/Neralu/pull/20" target="_blank" rel="noopener">Open pull request #20</a>
+                <a class="btn btn-quiet" href="https://github.com/Priyanshu-senapati/Neralu" target="_blank" rel="noopener">Team repository</a>
+              </div>
             </div>
           </div>
         </article>

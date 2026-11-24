@@ -2,7 +2,7 @@
 // still works on touch), keyboard and screen readers through the range input.
 const LABELS: Record<string, string> = {
   traditional: "Traditional ISP <b>18.1 dB</b>",
-  raw: "RAW as captured",
+  raw: "Sensor RAW, as captured",
   truth: "Ground truth",
 };
 
@@ -52,10 +52,18 @@ export function initCompare(root: HTMLElement, reduced: boolean) {
   controls.querySelectorAll<HTMLInputElement>('input[name="left"]').forEach((radio) => {
     radio.addEventListener("change", () => {
       if (!radio.checked) return;
-      frame.querySelectorAll<HTMLElement>("[data-left]").forEach((pic) => {
-        pic.hidden = pic.dataset.left !== radio.value;
-      });
-      leftLabel.innerHTML = LABELS[radio.value] ?? "";
+      const swap = () => {
+        frame.querySelectorAll<HTMLElement>("[data-left]").forEach((pic) => {
+          pic.hidden = pic.dataset.left !== radio.value;
+        });
+        leftLabel.innerHTML = LABELS[radio.value] ?? "";
+      };
+      const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
+      if (!reduced && typeof doc.startViewTransition === "function") {
+        const left = frame.querySelector<HTMLElement>(".compare-left");
+        if (left) left.style.viewTransitionName = "compare-left";
+        doc.startViewTransition(swap);
+      } else swap();
     });
   });
 
