@@ -55,7 +55,7 @@
       <nav aria-label="Sections">
         <ul class="nav-links">
           <li class="nav-wide"><a href="#audit">Audit</a></li>
-          <li class="nav-wide"><a href="#work">Projects</a></li>
+          <li><a href="#work">Projects</a></li>
           <li class="nav-wide"><a href="#r-paper">Paper</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
@@ -77,7 +77,7 @@
               systems and ship them as working apps.
             </p>
             <p class="hook">Resumes are easy to inflate, so I audited mine.</p>
-            <p class="hook-sub">Ten of its claims, each checked against a receipt you can open.</p>
+            <p class="hook-sub">Ten of its claims, flagged in the format of LegalLens (the contract-risk tool I built) and each checked against a receipt you can open.</p>
             <div class="actions">
               <a class="btn" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume</a>
               <a class="btn btn-quiet" href="#audit">Watch the audit</a>
@@ -92,6 +92,7 @@
               <li><a href="#r-neralu">Neralu</a><span>heatwave calls, Hack4SDG finalist</span><em class="mini-stamp ms-verified">1 of 2 verified</em></li>
               <li><a href="#r-kaavalu">Kaavalu</a><span>scam-call guard, SIH entry</span><em class="mini-stamp ms-pending">Pending</em></li>
               <li><a href="#r-paper">IEEE paper</a><span>LSTM stock prediction</span><em class="mini-stamp ms-verified">Verified</em></li>
+              <li><a href="#record">Kalpavikas 2.0</a><span>RVU App Lab and Ideathon</span><em class="mini-stamp ms-verified">Verified</em></li>
             </ul>
             <p class="tally-note">Audit, 25 Nov 2026: <strong>7 of 10 claims verified</strong>, 2 on request, 1&nbsp;pending.</p>
           </aside>
@@ -104,7 +105,7 @@
           <div class="audit-log">
             <div class="audit-head">
               <h2 id="audit-title" class="section-title">The audit</h2>
-              <p class="audit-intro">In the note format of my LegalLens tool. Here every note is a receipt.</p>
+              <p class="audit-intro">In the note format of LegalLens, the contract-risk tool I built: every flag gets a note with its section and character range. Here every note is a receipt.</p>
               <p class="audit-progress" aria-hidden="true" data-audit-progress></p>
             </div>
             <div class="claims-window" data-claims-window>
@@ -113,86 +114,91 @@
                   <figure class="ll-note">
                     <picture>
                       <source type="image/avif" srcset="/img/legallens-note-360.avif 360w, /img/legallens-note-720.avif 720w" sizes="(min-width: 1024px) 30vw, 80vw" />
-                      <img src="/img/legallens-note-360.webp" srcset="/img/legallens-note-360.webp 360w, /img/legallens-note-720.webp 720w" sizes="(min-width: 1024px) 30vw, 80vw" width="720" height="580" loading="lazy" decoding="async" alt="A LegalLens note on a contract clause: High, review closely; Automatic renewal; Matched 'renews automatically'; section 2.1, characters 407 to 606." />
+                      <img src="/img/legallens-note-360.webp" srcset="/img/legallens-note-360.webp 360w, /img/legallens-note-720.webp 720w" sizes="(min-width: 1024px) 30vw, 80vw" width="720" height="440" loading="lazy" decoding="async" alt="A LegalLens note on a contract clause: High, review closely; Automatic renewal; Matched 'renews automatically'; section 2.1, characters 407 to 606." />
                     </picture>
                     <figcaption>LegalLens, flagging a contract clause. Below, the same note on my resume.</figcaption>
                   </figure>
                 </li>
                 <li class="claim" data-claim="isp-win" data-status="request">
-                  <p class="claim-status s-request">On request, ask me for it</p>
+                  <p class="claim-status s-request"><b>On request</b>, ask me for it</p>
                   <blockquote class="claim-text">“Won 1st place (team of 4) at RV University’s Computer Vision Hackathon 2026”</blockquote>
                   <p class="claim-finding">No public receipt for the result yet; ask me for it. Everything else about the project is public: code, live demo and evaluation.</p>
                   <p class="claim-loc">§ Projects, characters 406–481</p>
                   <a class="claim-link" href="#r-isp">See the project</a>
                 </li>
                 <li class="claim" data-claim="isp-demo" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“live demo on Hugging Face Spaces”</blockquote>
                   <p class="claim-finding">Live and answering, checked 25 Nov 2026.</p>
                   <p class="claim-loc">§ Projects, characters 483–516</p>
                   <a class="claim-link" href="#receipt-isp-demo" data-receipt="isp-demo">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="isp-psnr" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“29.84 dB PSNR vs 25.40 dB for the traditional pipeline”</blockquote>
                   <p class="claim-finding"><code>results/benchmarks.json</code>: hybrid 29.839 dB, traditional 25.404 dB, over 26 held-out images from 5 phones.</p>
                   <p class="claim-loc">§ Projects, characters 961–1016</p>
                   <a class="claim-link" href="#receipt-isp-psnr" data-receipt="isp-psnr">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="legal-cats" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“flags each against 11 risk categories”</blockquote>
                   <p class="claim-finding"><code>legallens/risk.py</code> defines exactly 11, from arbitration to calls and messages.</p>
                   <p class="claim-loc">§ Projects, characters 1183–1220</p>
                   <a class="claim-link" href="#receipt-legal-cats" data-receipt="legal-cats">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="legal-tests" data-status="verified">
-                  <p class="claim-status s-verified">Understated, the receipt says more than the resume</p>
+                  <p class="claim-status s-verified"><b>Understated</b>, the receipt says more than the resume</p>
                   <blockquote class="claim-text">“covered by 72 automated tests”</blockquote>
                   <p class="claim-finding">99 tests pass today. The resume still says 72.</p>
                   <p class="claim-loc">§ Projects, characters 1373–1403</p>
                   <a class="claim-link" href="#receipt-legal-tests" data-receipt="legal-tests">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="neralu-final" data-status="request">
-                  <p class="claim-status s-request">On request, ask me for it</p>
+                  <p class="claim-status s-request"><b>On request</b>, ask me for it</p>
                   <blockquote class="claim-text">“Hack4SDG 2026 finalist”</blockquote>
                   <p class="claim-finding">No public receipt for the placing yet; ask me for it. My code from the finale is public, next.</p>
                   <p class="claim-loc">§ Projects, characters 1512–1534</p>
                   <a class="claim-link" href="#r-neralu">See the project</a>
                 </li>
                 <li class="claim" data-claim="neralu-fixes" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“fixed escalation rules in the backend (including a new database field), kept private details out of shared API views, and wrote tests for each fix”</blockquote>
                   <p class="claim-finding">Merged pull request #20: four commits by me, one per fix, each with tests. +242 −43.</p>
                   <p class="claim-loc">§ Projects, characters 1721–1868</p>
                   <a class="claim-link" href="#receipt-neralu-fixes" data-receipt="neralu-fixes">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="paper" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“Stock Price Prediction using LSTM Networks: A Multi-feature Time Series Approach”</blockquote>
                   <p class="claim-finding">Listed on IEEE Xplore with five authors, me fourth. DOI 10.1109/ICSSIT69151.2026.11656530.</p>
                   <p class="claim-loc">§ Publications, characters 2575–2655</p>
                   <a class="claim-link" href="#receipt-paper" data-receipt="paper">Open the receipt</a>
                 </li>
                 <li class="claim" data-claim="sih" data-status="pending">
-                  <p class="claim-status s-pending">Pending, results awaited</p>
+                  <p class="claim-status s-pending"><b>Pending</b>, results awaited</p>
                   <blockquote class="claim-text">“Kaavalu submitted, awaiting next-round results”</blockquote>
                   <p class="claim-finding">Results are not out yet. This line changes when they are.</p>
                   <p class="claim-loc">§ Achievements, characters 2936–2982</p>
                   <a class="claim-link" href="#r-kaavalu">See the project</a>
                 </li>
                 <li class="claim" data-claim="kalpavikas" data-status="verified">
-                  <p class="claim-status s-verified">Verified, receipt attached</p>
+                  <p class="claim-status s-verified"><b>Verified</b>, receipt attached</p>
                   <blockquote class="claim-text">“Participant, Kalpavikas 2.0”</blockquote>
                   <p class="claim-finding">Two certificates: App Lab and Ideathon 4.0.</p>
                   <p class="claim-loc">§ Achievements, characters 2984–3011</p>
                   <a class="claim-link" href="#receipt-kalpavikas" data-receipt="kalpavikas">Open the receipt</a>
                 </li>
                 <li class="claim claim-summary">
-                  <p class="claim-status s-verified">Audit complete</p>
-                  <p class="claim-text">7 verified, 2 on request, 1 pending.</p>
-                  <p class="claim-finding">Every receipt is with its project below.</p>
-                  <a class="claim-link" href="#work">Go to the projects</a>
+                  <p class="claim-text">Every receipt is with its project below.</p>
+                  <ul class="summary-links">
+                    <li><a href="#r-isp">Hybrid ISP</a></li>
+                    <li><a href="#r-legal">LegalLens</a></li>
+                    <li><a href="#r-neralu">Neralu</a></li>
+                    <li><a href="#r-kaavalu">Kaavalu</a></li>
+                    <li><a href="#r-paper">Research paper</a></li>
+                    <li><a href="#record">Record</a></li>
+                  </ul>
                 </li>
               </ol>
             </div>
@@ -215,7 +221,7 @@
       <!-- ============ PROJECTS WITH RECEIPTS ============ -->
       <section id="work" class="work" aria-labelledby="work-title">
         <div class="wrap work-head">
-          <h2 id="work-title" class="work-title">Projects, with receipts</h2>
+          <h2 id="work-title" class="section-title">Projects, with receipts</h2>
           <p>Four projects from 2026, newest first. Team projects say who did what.</p>
         </div>
 
@@ -231,26 +237,26 @@
             <div class="compare-frame">
               <div class="compare-side compare-left">
                 <picture data-left="traditional">
-                  <source type="image/avif" srcset="/img/chess-traditional-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-traditional-crop-768.webp" srcset="/img/chess-traditional-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="Low-light chess pieces processed by a traditional camera pipeline: grainy, with coloured noise." />
+                  <source type="image/avif" srcset="/img/coffee-traditional-600.avif 600w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/coffee-traditional-600.webp" srcset="/img/coffee-traditional-600.webp 600w" sizes="(min-width: 1400px) 1300px, 92vw" width="600" height="400" loading="lazy" decoding="async" alt="A cup of coffee at night through a traditional camera pipeline: dark, murky and full of coloured noise." />
                 </picture>
                 <picture data-left="raw" hidden>
-                  <source type="image/avif" srcset="/img/chess-raw-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-raw-crop-768.webp" srcset="/img/chess-raw-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The same scene as the sensor captured it: very dark and noisy." />
+                  <source type="image/avif" srcset="/img/coffee-raw-600.avif 600w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/coffee-raw-600.webp" srcset="/img/coffee-raw-600.webp 600w" sizes="(min-width: 1400px) 1300px, 92vw" width="600" height="400" loading="lazy" decoding="async" alt="The same shot as the simulated sensor recorded it: very dark." />
                 </picture>
                 <picture data-left="truth" hidden>
-                  <source type="image/avif" srcset="/img/chess-truth-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-truth-crop-768.webp" srcset="/img/chess-truth-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The clean reference image of the same scene." />
+                  <source type="image/avif" srcset="/img/coffee-truth-600.avif 600w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/coffee-truth-600.webp" srcset="/img/coffee-truth-600.webp 600w" sizes="(min-width: 1400px) 1300px, 92vw" width="600" height="400" loading="lazy" decoding="async" alt="The clean original of the same shot." />
                 </picture>
-                <p class="compare-label compare-label-left" data-left-label>Traditional ISP <b>18.1 dB</b></p>
+                <p class="compare-label compare-label-left" data-left-label>Traditional <b>8.3 dB</b></p>
               </div>
               <div class="compare-side compare-right">
                 <picture>
-                  <source type="image/avif" srcset="/img/chess-hybrid-crop-768.avif 768w" sizes="(min-width: 1400px) 1300px, 92vw" />
-                  <img src="/img/chess-hybrid-crop-768.webp" srcset="/img/chess-hybrid-crop-768.webp 768w" sizes="(min-width: 1400px) 1300px, 92vw" width="768" height="512" loading="lazy" decoding="async" alt="The same scene processed by the hybrid pipeline: cleaner, with natural colour." />
+                  <source type="image/avif" srcset="/img/coffee-hybrid-600.avif 600w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/coffee-hybrid-600.webp" srcset="/img/coffee-hybrid-600.webp 600w" sizes="(min-width: 1400px) 1300px, 92vw" width="600" height="400" loading="lazy" decoding="async" alt="The same shot through the hybrid pipeline: a bright, recognisable cup and saucer." />
                 </picture>
               </div>
-              <p class="compare-label compare-label-right">Hybrid <b>25.6 dB</b></p>
+              <p class="compare-label compare-label-right">Hybrid <b>21.4 dB</b></p>
               <span class="compare-handle" aria-hidden="true"></span>
               <input class="compare-range" type="range" min="0" max="100" step="0.5" value="50" aria-label="Slide to compare the hybrid pipeline with the other image" hidden data-compare-range />
             </div>
@@ -262,8 +268,13 @@
                 <label><input type="radio" name="left" value="truth" /> <span>Ground truth</span></label>
               </fieldset>
               <p class="compare-hint">Drag across the photo</p>
+              <dl class="compare-readout">
+                <div><dt>Traditional, this photo</dt><dd>8.3 dB</dd></div>
+                <div><dt>Hybrid, this photo</dt><dd>21.4 dB</dd></div>
+              </dl>
+              <p class="compare-note">The extreme case: three stops under-exposed at high ISO. Toggle Ground truth to see the clean original.</p>
             </div>
-            <figcaption>See it yourself, at 2× zoom: the same dark phone RAW (Nexus 6, ISO 3200, a test scene the model never saw) through a traditional pipeline and through the hybrid one. Look at the coloured speckle on the board. PSNR for the whole photo, against the clean reference.</figcaption>
+            <figcaption>See it yourself: a night photo through a simulated phone sensor, three stops under-exposed at high ISO (the extreme test from the design document). PSNR for this photo against the clean original; the means over 26 real phone images are in the table below.</figcaption>
           </figure>
 
           <div class="receipts receipts-isp">
@@ -321,9 +332,9 @@
             <figure class="legal-shot">
               <picture>
                 <source type="image/avif" srcset="/img/legallens-phone-390.avif 390w, /img/legallens-phone-780.avif 780w" sizes="(min-width: 1024px) 420px, 92vw" />
-                <img src="/img/legallens-phone-390.webp" srcset="/img/legallens-phone-390.webp 390w, /img/legallens-phone-780.webp 780w" sizes="(min-width: 1024px) 420px, 92vw" width="780" height="960" loading="lazy" decoding="async" alt="LegalLens results: clause 2.1 'Your Subscription renews automatically' underlined, with a note: High, review closely; Automatic renewal; matched 'renews automatically'; characters 407 to 606." />
+                <img src="/img/legallens-phone-390.webp" srcset="/img/legallens-phone-390.webp 390w, /img/legallens-phone-780.webp 780w" sizes="(min-width: 1024px) 420px, 92vw" width="780" height="820" loading="lazy" decoding="async" alt="LegalLens results: clause 2.1 'Your Subscription renews automatically' underlined, with a note: High, review closely; Automatic renewal; matched 'renews automatically'; characters 407 to 606." />
               </picture>
-              <figcaption>A real session on a phone: the matched phrase is underlined, and the note gives the category and its character range.</figcaption>
+              <figcaption>A real session on a phone: the note format the audit at the top of this page borrows, with the matched phrase underlined and its character range.</figcaption>
             </figure>
             <div class="legal-left-body">
               <h4 class="sub">What I built</h4>
@@ -430,17 +441,6 @@
 
       <!-- ============ PAPER ============ -->
       <section id="r-paper" class="paper wrap" aria-labelledby="paper-title">
-        <div class="paper-text">
-          <h2 id="paper-title" class="section-title">Research paper</h2>
-          <p class="pub-name">Stock Price Prediction using LSTM Networks</p>
-          <p class="pub-sub">A Multi-feature Time Series Approach</p>
-          <p class="meta"><span>Co-author, 4th of 5</span><span>ICSSIT 2026, IEEE</span><span>pp. 1280–1284</span></p>
-          <p>An LSTM predicts the next day's closing price from a 60-day window of prices and engineered indicators (smoothed moving averages, daily returns, RSI), trained on Yahoo Finance data with early stopping; it beats ARIMA and linear regression on prediction error.</p>
-          <p class="doi">DOI <a href="https://doi.org/10.1109/ICSSIT69151.2026.11656530" target="_blank" rel="noopener">10.1109/ICSSIT69151.2026.11656530</a></p>
-          <div class="actions">
-            <a class="btn btn-quiet" href="https://ieeexplore.ieee.org/document/11656530" target="_blank" rel="noopener">Read it on IEEE Xplore</a>
-          </div>
-        </div>
         <figure id="receipt-paper" class="receipt receipt-shot paper-shot">
           <p class="receipt-label"><span class="chip chip-verified">Verified</span> Published on IEEE Xplore</p>
           <a href="https://ieeexplore.ieee.org/document/11656530" target="_blank" rel="noopener" class="shot-link paper-frame">
@@ -452,6 +452,17 @@
           </a>
           <figcaption>The public abstract page, captured 25 Nov 2026. My name is the fourth author.</figcaption>
         </figure>
+        <div class="paper-text">
+          <h2 id="paper-title" class="section-title">Research paper</h2>
+          <p class="pub-name">Stock Price Prediction using LSTM Networks</p>
+          <p class="pub-sub">A Multi-feature Time Series Approach</p>
+          <p class="meta"><span>Co-author, 4th of 5</span><span>ICSSIT 2026, IEEE</span><span>pp. 1280–1284</span></p>
+          <p>An LSTM predicts the next day's closing price from a 60-day window of prices and engineered indicators (smoothed moving averages, daily returns, RSI), trained on Yahoo Finance data with early stopping; it beats ARIMA and linear regression on prediction error.</p>
+          <p class="doi">DOI <a href="https://doi.org/10.1109/ICSSIT69151.2026.11656530" target="_blank" rel="noopener">10.1109/ICSSIT69151.2026.11656530</a></p>
+          <div class="actions">
+            <a class="btn btn-quiet" href="https://ieeexplore.ieee.org/document/11656530" target="_blank" rel="noopener">Read it on IEEE Xplore</a>
+          </div>
+        </div>
       </section>
 
       <!-- ============ RECORD ============ -->

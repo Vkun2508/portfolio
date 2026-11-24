@@ -7,6 +7,15 @@
     1536,
     1024
   ],
+  "coffee": {
+    "scene": "photo-coffee-night, simulated sensor: 3 stops under-exposed, high ISO (noise 0.75, seed 1)",
+    "psnr_traditional": 8.26,
+    "psnr_hybrid": 21.42,
+    "size": [
+      600,
+      400
+    ]
+  },
   "stages": {
     "nlf_a": 0.011032721827449707,
     "nlf_b": 0.000739768946820404,

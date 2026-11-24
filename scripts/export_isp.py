@@ -56,6 +56,23 @@ def main() -> None:
         "route": out.route.label,
         "size": [int(hyb.shape[1]), int(hyb.shape[0])],
     }
+    # The night coffee shot from the design document: simulated sensor, 3 stops under, high ISO.
+    from isp.simulate import SimParams, simulate
+
+    craw = simulate(load_sample("photo-coffee-night"), SimParams(noise=0.75, exposure_ev=-3.0, seed=1))
+    cout = pipelines.run(craw, names=["traditional", "hybrid"], with_metrics=False)
+    ctrad, chyb = cout.results["traditional"].image, cout.results["hybrid"].image
+    save(as_captured(craw), "coffee-raw.png")
+    save(ctrad, "coffee-traditional.png")
+    save(chyb, "coffee-hybrid.png")
+    save(craw.gt, "coffee-truth.png")
+    info["coffee"] = {
+        "scene": "photo-coffee-night, simulated sensor: 3 stops under-exposed, high ISO (noise 0.75, seed 1)",
+        "psnr_traditional": round(float(metrics.psnr(np.clip(ctrad, 0, 1), craw.gt)), 2),
+        "psnr_hybrid": round(float(metrics.psnr(np.clip(chyb, 0, 1), craw.gt)), 2),
+        "size": [int(chyb.shape[1]), int(chyb.shape[0])],
+    }
+
     stages = export_stages(raw)
     info["stages"] = stages
     (OUT / "chess.json").write_text(json.dumps(info, indent=2))

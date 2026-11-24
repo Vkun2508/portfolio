@@ -24,6 +24,11 @@ const isp = resolve(root, "assets-src", "isp");
 for (const n of ["raw", "traditional", "hybrid", "truth"]) {
   await emit(resolve(isp, `chess-${n}.png`), `chess-${n}`, [800, 1536]);
 }
+// the night coffee test for the slider (600x400 source)
+for (const n of ["raw", "traditional", "hybrid", "truth"]) {
+  const f = resolve(isp, `coffee-${n}.png`);
+  if (existsSync(f)) await emit(f, `coffee-${n}`, [600]);
+}
 // 2x close-ups for the slider, where the noise difference is visible (made by the crop step in r4)
 for (const n of ["raw", "traditional", "hybrid", "truth"]) {
   const f = resolve(isp, `chess-${n}-crop.png`);
@@ -71,6 +76,6 @@ for (const [name, widths] of receipts) {
 // LegalLens on a phone: one flagged clause and its note, from a real 390px session.
 const llPhone = resolve(rc, "legallens-phone.png");
 if (existsSync(llPhone)) {
-  const crop = await sharp(llPhone).extract({ left: 0, top: 226, width: 780, height: 960 }).png().toBuffer();
+  const crop = await sharp(llPhone).extract({ left: 0, top: 226, width: 780, height: 820 }).png().toBuffer();
   await emit(crop, "legallens-phone", [390, 780]);
 }

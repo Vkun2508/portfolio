@@ -10,7 +10,7 @@ type Claim = { id: string; status: "verified" | "request" | "pending"; rects: Re
 type View = { s: number; tx: number; ty: number };
 
 const STAMP_TEXT: Record<string, string> = {
-  "legal-tests": "Understated · 99 pass",
+  "legal-tests": "Understated",
 };
 const STATUS_TEXT = { verified: "Verified", request: "On request", pending: "Pending" } as const;
 const ASPECT = 2829 / 2000;
@@ -49,7 +49,7 @@ export function initAudit(root: HTMLElement, reduced: boolean) {
       }),
     );
     const text = STAMP_TEXT[c.id] ?? STATUS_TEXT[c.status];
-    const w = ((text.length * 0.66 + 1.2) * 2.2) / 100;
+    const w = ((text.length * 0.74 + 1.6) * 2.2) / 100;
     const first = c.rects[0];
     let box: Rect = { x: 0.945, y: first.y + first.h / 2 - STAMP_H / 2, w, h: STAMP_H };
     for (let k = 1; overlaps(box) && k < 8; k++) {
@@ -99,17 +99,35 @@ export function initAudit(root: HTMLElement, reduced: boolean) {
   let views: View[] = [];
   const phone = () => window.innerWidth < 1024;
 
+  // stamps hang up to OVER of the page width past its right edge; every view keeps them in frame
+  const OVER = 0.2;
   const viewFor = (rects: Rect[] | null): View => {
-    if (!rects) return { s: 1, tx: (fw - W0) / 2, ty: (fh - H0) / 2 };
+    if (!rects) return { s: 1, tx: (fw - W0 * (1 + OVER)) / 2, ty: (fh - H0) / 2 };
     const x0 = Math.min(...rects.map((r) => r.x)) * W0;
     const y0 = Math.min(...rects.map((r) => r.y)) * H0;
     const x1 = Math.max(...rects.map((r) => r.x + r.w)) * W0;
     const y1 = Math.max(...rects.map((r) => r.y + r.h)) * H0;
     const bw = x1 - x0;
     const bh = y1 - y0;
-    const s = Math.max(1.2, Math.min((fw * 0.9) / bw, (fh * 0.5) / bh, phone() ? 3.4 : 2.8));
-    const tx = fw / 2 - (x0 + bw / 2) * s;
-    const ty = fh / 2 - (y0 + bh / 2) * s;
+    let s: number;
+    let tx: number;
+    if (phone()) {
+      // a phone zooms hard onto the claim's first line and its stamp; cropping is expected here
+      s = Math.max(1.8, Math.min((fw * 0.94) / bw, 3.2));
+      tx = fw / 2 - (x0 + bw / 2) * s;
+      tx = Math.min(0, Math.max(tx, fw - W0 * (1 + OVER) * s));
+      // the stamp always fits: crop the start of the line instead of the verdict
+      tx = Math.min(tx, fw - x1 * s - 8);
+    } else {
+      // desktop frames from the page's left margin (only white paper is ever cropped) to the stamp
+      // always the whole stamp column, so a neighbouring stamp is never cut either
+      const MARGIN = 0.05 * W0;
+      const right = W0 * (1 + OVER);
+      s = Math.max(1, Math.min(fw / (right - MARGIN), (fh * 0.5) / bh, 2.6));
+      tx = Math.min(0, -MARGIN * s + (fw - (right - MARGIN) * s) / 2);
+    }
+    let ty = fh / 2 - (y0 + bh / 2) * s;
+    if (H0 * s > fh) ty = Math.min(0, Math.max(ty, fh - H0 * s));
     return { s, tx, ty };
   };
 
@@ -118,12 +136,12 @@ export function initAudit(root: HTMLElement, reduced: boolean) {
     root.style.height = `${window.innerHeight + (N + 2) * segLen}px`;
     fw = frame.clientWidth;
     fh = frame.clientHeight;
-    W0 = Math.min(fw * 0.86, (fh * 0.96) / ASPECT);
+    W0 = Math.min((fw * 0.96) / (1 + OVER), (fh * 0.96) / ASPECT);
     H0 = W0 * ASPECT;
     sheet.style.setProperty("--w0", `${W0}px`);
     sheet.style.setProperty("--u", `${W0 / 100}px`);
     // each claim is framed together with its stamp in the margin
-    views = [viewFor(null), ...claims.map((c, i) => viewFor([...c.rects, boxes[i]])), viewFor(null)];
+    views = [viewFor(null), ...claims.map((c, i) => viewFor(phone() ? [c.rects[0], boxes[i]] : [...c.rects, boxes[i]])), viewFor(null)];
     last = -1;
     shown = -2;
   };
@@ -199,7 +217,7 @@ export function initAudit(root: HTMLElement, reduced: boolean) {
       });
       win.classList.toggle("is-moved", seg > 0);
       const focus = steps[seg];
-      const y = seg === 0 ? 0 : win.clientHeight * 0.12 - focus.offsetTop;
+      const y = seg === 0 ? 0 : win.clientHeight * (phone() ? 0.02 : 0.12) - focus.offsetTop;
       list.style.setProperty("--log-y", `${Math.min(0, y)}px`);
     }
 

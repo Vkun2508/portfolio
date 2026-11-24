@@ -1,8 +1,8 @@
 // Before/after slider over the real chess scene. Pointer drag on the photo (vertical page scroll
 // still works on touch), keyboard and screen readers through the range input.
 const LABELS: Record<string, string> = {
-  traditional: "Traditional ISP <b>18.1 dB</b>",
-  raw: "Sensor RAW, as captured",
+  traditional: "Traditional <b>8.3 dB</b>",
+  raw: "Sensor RAW, as recorded",
   truth: "Ground truth",
 };
 
