@@ -1,0 +1,68 @@
+/* Primitive → semantic tokens. Components read the semantic layer only.
+   Palette checked with frontend-master palette.mjs: PASS (WCAG + APCA). */
+
+@font-face {
+  font-family: "Hubot Sans";
+  src: url("/fonts/hubot-sans.woff2") format("woff2-variations"), url("/fonts/hubot-sans.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/mona-sans.woff2") format("woff2-variations"), url("/fonts/mona-sans.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* primitives */
+  --c-ground: #111214;
+  --c-surface: #1a1b1e;
+  --c-raise: #232428;
+  --c-ink: #e7e7e3;
+  --c-muted: #aeada6;
+  --c-faint: #5a5853;
+  --c-amber: #f5a33a;
+  --c-amber-soft: #ffcf9c;
+  --c-bound: #e5566f; /* the noise-model bound's red, from the pipeline's own figures */
+
+  /* semantic */
+  --ground: var(--c-ground);
+  --surface: var(--c-surface);
+  --raise: var(--c-raise);
+  --ink: var(--c-ink);
+  --muted: var(--c-muted);
+  --line: #2c2d31;
+  --accent: var(--c-amber);
+  --accent-ink: var(--c-ground);
+  --focus: var(--c-amber);
+
+  /* type */
+  --display: "Hubot Sans", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --text: "Mona Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --fs-1: clamp(3.5rem, 12.6vw, 13.5rem); /* the name */
+  --fs-2: clamp(2.5rem, 7vw, 6.75rem); /* section and project titles, big figures */
+  --fs-3: clamp(1.25rem, 1rem + 1vw, 1.75rem); /* claims, lede */
+  --fs-4: 1.0625rem; /* body */
+  --fs-5: 0.875rem; /* captions, meta */
+
+  /* space (4/8 rhythm) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 96px;
+  --s-9: clamp(80px, 9vw, 136px); /* between projects */
+  --gutter: clamp(16px, 4vw, 64px);
+  --max: 1440px;
+
+  /* shape */
+  --radius: 0;
+}

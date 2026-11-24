@@ -1,0 +1,16 @@
+{
+  "scene": "Nexus 6, ISO 3200, low light (SIDD test scene 004, unseen in training)",
+  "psnr_traditional": 18.1,
+  "psnr_hybrid": 25.55,
+  "route": "Learned core + chroma cleanup",
+  "size": [
+    1536,
+    1024
+  ],
+  "stages": {
+    "nlf_a": 0.011032721827449707,
+    "nlf_b": 0.000739768946820404,
+    "bound_k": 2.0,
+    "bound_active_pct": 9.9
+  }
+}

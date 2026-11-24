@@ -1,0 +1,79 @@
+/* A clean, light page for anyone who prints the portfolio. */
+@media print {
+  :root {
+    --ground: #fff;
+    --surface: #fff;
+    --ink: #111;
+    --muted: #444;
+    --line: #ccc;
+    --accent: #8a4b00;
+  }
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .nav,
+  .skip,
+  .hero-canvas,
+  .readout,
+  .compare-controls,
+  .compare-handle,
+  .stages-block,
+  [data-copy],
+  .copy-status {
+    display: none !important;
+  }
+  .hero,
+  .hero-stage {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .hero.gl-on .name {
+    color: #111 !important;
+  }
+  .hero-inner {
+    padding-top: 0;
+  }
+  .name {
+    font-size: 48pt !important;
+  }
+  .btn {
+    background: none !important;
+    border: 0 !important;
+    color: #111 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+  a[href^="http"]::after,
+  a[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #444;
+  }
+  .project,
+  .publication,
+  .skills,
+  .record,
+  .contact {
+    padding-top: 24pt !important;
+    break-inside: avoid-page;
+  }
+  .compare-frame {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    aspect-ratio: auto !important;
+  }
+  .compare-side {
+    position: static !important;
+    clip-path: none !important;
+  }
+  .develop picture,
+  .develop .compare-frame {
+    clip-path: none !important;
+  }
+  .develop picture::after,
+  .develop .compare-frame::after {
+    display: none !important;
+  }
+}

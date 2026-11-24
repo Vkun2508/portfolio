@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Vinochan Rajesh · CSE (AI/ML), RV University</title>
+    <meta
+      name="description"
+      content="Vinochan Rajesh, B.Tech CSE (AI/ML) student at RV University, Bengaluru. Builds machine-learning systems and ships them as working web apps: a 1st-place camera pipeline, a legal-risk NLP tool and more."
+    />
+    <meta name="theme-color" content="#111214" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://vinochan-rajesh.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vinochan Rajesh · CSE (AI/ML), RV University" />
+    <meta
+      property="og:description"
+      content="Machine-learning systems, shipped as working web apps. 1st place, RV University Computer Vision Hackathon 2026."
+    />
+    <meta property="og:url" content="https://vinochan-rajesh.vercel.app/" />
+    <meta property="og:image" content="https://vinochan-rajesh.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/hubot-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vinochan Rajesh",
+        "url": "https://vinochan-rajesh.vercel.app/",
+        "email": "mailto:vinochanrajesh25@gmail.com",
+        "sameAs": ["https://github.com/Vkun2508"],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "RV University" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to work</a>
+
+    <header class="nav" data-nav>
+      <a class="nav-mark" href="#top" aria-label="Vinochan Rajesh, back to top">
+        <svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true">
+          <rect x="0" y="0" width="8" height="8" fill="#C8463C" />
+          <rect x="8" y="0" width="8" height="8" fill="#4E9A54" />
+          <rect x="0" y="8" width="8" height="8" fill="#4E9A54" />
+          <rect x="8" y="8" width="8" height="8" fill="#4467B8" />
+        </svg>
+        <span class="nav-name">Vinochan Rajesh</span>
+      </a>
+      <nav aria-label="Sections">
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li class="nav-wide"><a href="#publication">Publication</a></li>
+          <li class="nav-wide"><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a class="btn btn-small" href="/Vinochan_Rajesh_Resume.pdf" download>Resume<span class="nav-wide">&nbsp;(PDF)</span></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" data-hero aria-labelledby="name">
+        <div class="hero-stage" data-hero-stage>
+          <div class="hero-inner wrap">
+            <h1 id="name" class="name" data-name>
+              <span class="line">Vinochan</span>
+              <span class="line">Rajesh</span>
+            </h1>
+
+            <div class="hero-foot">
+              <div class="hero-copy">
+                <p class="lede">
+                  B.Tech CSE (AI/ML) student at RV University, Bengaluru. I build machine-learning
+                  systems and ship them as working web apps.
+                </p>
+                <p class="status"><span class="dot" aria-hidden="true"></span>Open to internships</p>
+                <div class="actions">
+                  <a class="btn" href="#work">See my work</a>
+                  <a class="btn btn-quiet" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume</a>
+                </div>
+              </div>
+
+              <div class="readout" data-readout>
+                <p class="readout-intro">
+                  The camera pipeline I built for RV University's Computer Vision Hackathon (1st
+                  place) turns a noisy RAW sensor image into a photo in seven stages.
+                </p>
+                <p class="readout-stage" aria-hidden="true">
+                  <span class="readout-n" data-readout-n>7/7</span>
+                  <span class="readout-name" data-readout-name>Hybrid output</span>
+                </p>
+                <p class="readout-note" aria-hidden="true" data-readout-note>
+                  29.84 dB mean PSNR on 26 held-out phone images. Traditional pipeline: 25.40 dB.
+                </p>
+                <ol class="readout-bar" aria-hidden="true" data-readout-bar>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ol>
+                <p class="readout-hint is-gone" data-readout-hint hidden>Scroll to develop</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="work" aria-labelledby="work-title">
+        <h2 id="work-title" class="sr-only">Work</h2>
+
+        <!-- Hybrid ISP -->
+        <article class="project isp wrap" aria-labelledby="isp-title">
+          <header class="project-head">
+            <h3 id="isp-title" class="title">Hybrid ISP</h3>
+            <p class="claim">
+              A smartphone camera pipeline that won 1st place at RV University's Computer Vision
+              Hackathon 2026.
+            </p>
+            <p class="meta">
+              <span>Nov 2026</span><span>Team of 4</span><span>Python, FastAPI, React, TypeScript, ONNX, Docker</span>
+            </p>
+          </header>
+
+          <figure class="compare develop" data-compare>
+            <div class="compare-frame">
+              <div class="compare-side compare-left">
+                <picture data-left="traditional">
+                  <source type="image/avif" srcset="/img/chess-traditional-800.avif 800w, /img/chess-traditional-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-traditional-800.webp" srcset="/img/chess-traditional-800.webp 800w, /img/chess-traditional-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Low-light chess pieces processed by a traditional camera pipeline: grainy, with coloured noise." />
+                </picture>
+                <picture data-left="raw" hidden>
+                  <source type="image/avif" srcset="/img/chess-raw-800.avif 800w, /img/chess-raw-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-raw-800.webp" srcset="/img/chess-raw-800.webp 800w, /img/chess-raw-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The same scene as the sensor captured it: very dark and noisy." />
+                </picture>
+                <picture data-left="truth" hidden>
+                  <source type="image/avif" srcset="/img/chess-truth-800.avif 800w, /img/chess-truth-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-truth-800.webp" srcset="/img/chess-truth-800.webp 800w, /img/chess-truth-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The clean reference image of the same scene." />
+                </picture>
+                <p class="compare-label compare-label-left" data-left-label>Traditional ISP <b>18.1 dB</b></p>
+              </div>
+              <div class="compare-side compare-right">
+                <picture>
+                  <source type="image/avif" srcset="/img/chess-hybrid-800.avif 800w, /img/chess-hybrid-1536.avif 1536w" sizes="(min-width: 1400px) 1300px, 92vw" />
+                  <img src="/img/chess-hybrid-800.webp" srcset="/img/chess-hybrid-800.webp 800w, /img/chess-hybrid-1536.webp 1536w" sizes="(min-width: 1400px) 1300px, 92vw" width="1536" height="1024" loading="lazy" decoding="async" alt="The same scene processed by the hybrid pipeline: cleaner, with natural colour." />
+                </picture>
+                <p class="compare-label compare-label-right">Hybrid (ours) <b>25.6 dB</b></p>
+              </div>
+              <span class="compare-handle" aria-hidden="true"></span>
+              <input class="compare-range" type="range" min="0" max="100" step="0.5" value="50" aria-label="Slide to compare the hybrid pipeline with the other image" hidden data-compare-range />
+            </div>
+            <div class="compare-controls" hidden data-compare-controls>
+              <fieldset class="seg">
+                <legend>Compare the hybrid with</legend>
+                <label><input type="radio" name="left" value="traditional" checked /> <span>Traditional ISP</span></label>
+                <label><input type="radio" name="left" value="raw" /> <span>RAW as captured</span></label>
+                <label><input type="radio" name="left" value="truth" /> <span>Ground truth</span></label>
+              </fieldset>
+              <p class="compare-hint">Drag across the photo</p>
+            </div>
+            <figcaption>
+              Real phone RAW from a Nexus 6 at ISO 3200, a test scene the model never saw in training.
+              PSNR is measured against the clean reference; higher is better.
+            </figcaption>
+          </figure>
+
+          <div class="isp-body">
+            <div class="isp-text">
+              <h4 class="sub">What I built</h4>
+              <ul class="points">
+                <li>Designed the hybrid pipeline: classical camera stages plus a compact neural denoiser, with an adaptive router that decides per photo how much of the network to run.</li>
+                <li>Built a FastAPI service and a React + TypeScript web app that run uploaded photos through three pipelines and show quality scores and per-stage timings. Deployed with Docker.</li>
+                <li>Built the evaluation suite: 26 held-out images from 5 phones, plus an ablation study.</li>
+              </ul>
+              <div class="actions">
+                <a class="btn" href="https://vkun05-hybrid-isp.hf.space" target="_blank" rel="noopener">Try the live demo</a>
+                <a class="btn btn-quiet" href="https://github.com/Vkun2508/hybrid-isp" target="_blank" rel="noopener">Read the code</a>
+              </div>
+            </div>
+            <dl class="figures">
+              <div class="fig fig-lead">
+                <dt>Hybrid pipeline, mean PSNR</dt>
+                <dd>29.84<span> dB</span></dd>
+              </div>
+              <div class="fig">
+                <dt>Traditional pipeline</dt>
+                <dd>25.40<span> dB</span></dd>
+              </div>
+              <div class="fig">
+                <dt>Held-out test images</dt>
+                <dd>26<span> from 5 phones</span></dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <section class="stages-block" aria-labelledby="stages-title" data-stages>
+          <div class="stages-stage" data-stages-stage>
+            <div class="stages-head wrap">
+              <h4 id="stages-title" class="sub">Seven stages, one photo</h4>
+              <p>The pipeline's real intermediate states on the chess scene, the same seven steps that developed my name at the top of this page.</p>
+            </div>
+            <ol class="stages" data-stages-track>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-1-320.avif 320w, /img/stage-1-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-1-512.webp" srcset="/img/stage-1-320.webp 320w, /img/stage-1-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="Bayer mosaic: a grid of red, green and blue sensor samples." /></picture><figcaption><b>1</b> Bayer mosaic <span>One colour sample per pixel, as the sensor records it</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-2-320.avif 320w, /img/stage-2-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-2-512.webp" srcset="/img/stage-2-320.webp 320w, /img/stage-2-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="Noise-level map in purple and orange: brighter areas carry more noise." /></picture><figcaption><b>2</b> Noise-level map <span>σ² = 1.1e-2·x + 7.4e-4, estimated from the image</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-3-320.avif 320w, /img/stage-3-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-3-512.webp" srcset="/img/stage-3-320.webp 320w, /img/stage-3-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="Heat map of what the neural network removed." /></picture><figcaption><b>3</b> What the network removed <span>|denoised − noisy| on the packed RAW</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-4-320.avif 320w, /img/stage-4-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-4-512.webp" srcset="/img/stage-4-320.webp 320w, /img/stage-4-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="Grey image with red dots where the noise-model bound capped the network." /></picture><figcaption><b>4</b> Noise-model bound <span>9.9% of pixels capped at 2σ, so the network cannot invent detail</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-5-320.avif 320w, /img/stage-5-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-5-512.webp" srcset="/img/stage-5-320.webp 320w, /img/stage-5-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="The scene before the network: dark and grainy." /></picture><figcaption><b>5</b> Before the network <span>Noisy RAW, minimal render</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-6-320.avif 320w, /img/stage-6-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-6-512.webp" srcset="/img/stage-6-320.webp 320w, /img/stage-6-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="The scene after the network: much less grain." /></picture><figcaption><b>6</b> After network and bound <span>Denoised RAW, minimal render</span></figcaption></figure></li>
+              <li><figure class="develop"><picture><source type="image/avif" srcset="/img/stage-7-320.avif 320w, /img/stage-7-512.avif 512w" sizes="(min-width: 1024px) 27vw, 46vw" /><img src="/img/stage-7-512.webp" srcset="/img/stage-7-320.webp 320w, /img/stage-7-512.webp 512w" sizes="(min-width: 1024px) 27vw, 46vw" width="512" height="512" loading="lazy" decoding="async" alt="The final hybrid output: clean chess pieces in warm light." /></picture><figcaption><b>7</b> Hybrid output <span>After white balance, demosaic, colour, tone and sharpening</span></figcaption></figure></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- LegalLens -->
+        <article class="project legal wrap" aria-labelledby="legal-title">
+          <div class="legal-text">
+            <h3 id="legal-title" class="title">LegalLens</h3>
+            <p class="claim">Reads a contract and flags the clauses that could hurt you.</p>
+            <p class="meta"><span>Oct 2026</span><span>NLP</span><span>Python, FastAPI, pypdf, pytest</span></p>
+            <ul class="points">
+              <li>Splits contracts (PDF or text) into clauses and flags each one against 11 risk categories, returning the matched phrases with character offsets.</li>
+              <li>Ships as a FastAPI web app, a JSON API with input validation and size limits, and a CLI.</li>
+              <li>Covered by 72 automated tests.</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btn-quiet" href="https://github.com/Vkun2508/legallens" target="_blank" rel="noopener">Read the code</a>
+            </div>
+          </div>
+          <figure class="legal-shot develop">
+            <picture>
+              <source type="image/avif" srcset="/img/legallens-800.avif 800w, /img/legallens-1536.avif 1536w" sizes="(min-width: 1024px) 62vw, 92vw" />
+              <img src="/img/legallens-800.webp" srcset="/img/legallens-800.webp 800w, /img/legallens-1536.webp 1536w" sizes="(min-width: 1024px) 62vw, 92vw" width="1536" height="674" loading="lazy" decoding="async" alt="LegalLens results: a contract with risky phrases underlined in red and notes in the margin explaining each flag." />
+            </picture>
+            <figcaption>Each flag shows the matched phrase, the risk category and its character range in the contract.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Neralu -->
+        <article class="project neralu wrap" aria-labelledby="neralu-title">
+          <figure class="neralu-shot develop">
+            <picture>
+              <source type="image/avif" srcset="/img/neralu-800.avif 800w, /img/neralu-1440.avif 1440w" sizes="(min-width: 1400px) 1300px, 92vw" />
+              <img src="/img/neralu-800.webp" srcset="/img/neralu-800.webp 800w, /img/neralu-1440.webp 1440w" sizes="(min-width: 1400px) 1300px, 92vw" width="1440" height="863" loading="lazy" decoding="async" alt="Neralu ward console: a 3D map of homes coloured by heat risk, today's heat index of 43.4 °C, and a list of residents due a call." />
+            </picture>
+            <figcaption>The ward console, with simulated residents ranked by heat risk.</figcaption>
+          </figure>
+          <div class="neralu-text">
+            <div>
+              <h3 id="neralu-title" class="title">Neralu</h3>
+              <p class="claim">
+                Phones older people who live alone when the heat crosses their own threshold, and sends
+                a person to the door when an answer is worrying.
+              </p>
+            </div>
+            <div>
+              <p class="meta"><span>Oct 2026</span><span>Hack4SDG 2026 finalist</span><span>Team of 4</span></p>
+              <p class="meta"><span>Python, FastAPI, SQLModel/SQLite, Twilio Voice, React</span></p>
+              <p>
+                <strong>My part:</strong> debugging and UI. At the finale I fixed the escalation rules in
+                the backend (including a new database field), kept private details out of shared API
+                views, and wrote tests for each fix.
+              </p>
+              <p class="aside">Neralu (ನೆರಳು) means “shade” in Kannada.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Kaavalu -->
+        <article class="project kaavalu" aria-labelledby="kaavalu-title">
+          <div class="kaavalu-inner wrap">
+          <h3 id="kaavalu-title" class="title">Kaavalu</h3>
+          <p class="claim">
+            An Android app that spots a “digital arrest” scam while the call is happening, then
+            interrupts with a spoken warning and an SMS to family.
+          </p>
+          <div class="kaavalu-detail">
+            <p class="meta"><span>Sep 2026</span><span>Smart India Hackathon 2026 entry</span><span>Kotlin, Jetpack Compose, ML Kit</span></p>
+            <p>Runs on the device. I worked on debugging and UI fixes.</p>
+            <p class="aside">Kaavalu (ಕಾವಲು) means “guard” in Kannada.</p>
+          </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="publication" class="publication wrap" aria-labelledby="pub-title">
+        <h2 id="pub-title" class="section-title">Publication</h2>
+        <div class="pub-body">
+          <p class="pub-name">Stock Price Prediction using LSTM Networks: A Multi-feature Time Series Approach</p>
+          <p class="meta">
+            <span>Co-author</span><span>2026 7th International Conference on Smart Systems and Inventive Technology (ICSSIT)</span><span>IEEE, pp. 1280–1284</span>
+          </p>
+          <div class="actions">
+            <a class="btn btn-quiet" href="https://ieeexplore.ieee.org/document/11656530" target="_blank" rel="noopener">Read on IEEE Xplore</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills wrap" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <dl class="skill-list">
+          <div>
+            <dt>AI-assisted development</dt>
+            <dd>Build and ship full-stack apps with Claude Code and ChatGPT: planning, prompting, reviewing and debugging AI-written code.</dd>
+          </div>
+          <div>
+            <dt>Languages <span>(familiar with)</span></dt>
+            <dd class="tags">
+              <span>Python</span><span>SQL</span><span>Java</span><span>C</span><span>TypeScript</span><span>JavaScript</span><span>Kotlin</span><span>HTML/CSS</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Frameworks and tools <span>(used in projects)</span></dt>
+            <dd class="tags">
+              <span>FastAPI</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>three.js</span><span>SQLite</span><span>Docker</span><span>Hugging Face Spaces</span><span>Git/GitHub</span><span>pytest</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="record" class="record wrap" aria-labelledby="record-title">
+        <h2 id="record-title" class="section-title">Record</h2>
+        <div class="record-body">
+          <div>
+            <h3 class="sub">Achievements</h3>
+            <ul class="timeline">
+              <li><time datetime="2026-11">Nov 2026</time><p><strong>1st place</strong>, Computer Vision Hackathon 2026, RV University</p></li>
+              <li><time datetime="2026-10">Oct 2026</time><p><strong>Finalist</strong>, Hack4SDG 2026, PES University</p></li>
+              <li><time datetime="2026">2026</time><p><strong>Smart India Hackathon 2026</strong>: Kaavalu submitted, awaiting next-round results</p></li>
+              <li><time datetime="2026">2026</time><p><strong>Participant</strong>, Kalpavikas 2.0, RV University: App Lab “How Does Your Phone Know?” and Ideathon 4.0</p></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">Education</h3>
+            <ul class="timeline">
+              <li>
+                <time datetime="2024">2024–2028</time>
+                <p><strong>RV University</strong>, Bengaluru<br />B.Tech in Computer Science and Engineering (AI/ML), expected 2028<br />Minor in Innovation, Entrepreneurship and Product Development</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact wrap" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <p class="contact-line">Looking for an internship where I can build and ship ML systems. Email is the fastest way to reach me.</p>
+        <p class="contact-email"><a href="mailto:vinochanrajesh25@gmail.com">vinochanrajesh25@gmail.com</a></p>
+        <div class="actions">
+          <button class="btn" type="button" data-copy="vinochanrajesh25@gmail.com" hidden>Copy email</button>
+          <a class="btn btn-quiet" href="https://github.com/Vkun2508" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-quiet" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume</a>
+        </div>
+        <p class="copy-status" role="status" aria-live="polite" data-copy-status></p>
+      </section>
+    </main>
+
+    <footer class="footer wrap">
+      <p>Vinochan Rajesh · Bengaluru, India · 2026</p>
+      <p>Built with Vite and WebGL. Set in Hubot Sans and Mona Sans (SIL Open Font License).</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

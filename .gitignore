@@ -1,0 +1,11 @@
+node_modules
+dist
+.vercel
+.taste-skill
+graphify-out
+assets-src/**/*.png
+*.log
+.env*
+
+.vercel
+.env*
