@@ -7,16 +7,59 @@ import "./styles/print.css";
 import Lenis from "lenis";
 import { initAudit } from "./audit";
 import { initCompare } from "./compare";
+import { initHero } from "./hero";
+import { initTrack } from "./track";
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ---------- smooth scroll (Experience page with a scroll scene; never under reduced motion) ----------
-const lenis = reduced ? null : new Lenis({ autoRaf: true, lerp: 0.11, anchors: { offset: -72 } });
+// (in-page links are routed below, so links into the sideways track land on their panel)
+const lenis = reduced ? null : new Lenis({ autoRaf: true, lerp: 0.11 });
 
 // ---------- the audit ----------
 const audit = document.querySelector<HTMLElement>("[data-audit]");
 if (audit) initAudit(audit, reduced);
 lenis?.resize();
+
+// ---------- the hero (after the audit: the resume page hands off into the audit's lens) ----------
+const hero = document.querySelector<HTMLElement>("[data-hero]");
+if (hero) initHero(hero, reduced);
+
+// ---------- projects, sideways on wide screens ----------
+const work = document.querySelector<HTMLElement>("[data-track]");
+const track = work ? initTrack(work, reduced) : null;
+lenis?.resize();
+
+// ---------- in-page links: one route for every #link ----------
+const focusTarget = (target: HTMLElement) => {
+  // keyboard and screen-reader users carry on from where the link went
+  if (!target.matches("a[href], button, input, select, textarea, summary, [tabindex]")) target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+};
+const scrollToTarget = (target: HTMLElement, instant = false) => {
+  // pinned scenes start at their own top; everything else clears the nav
+  const inTrack = track?.scrollYFor(target);
+  const y = inTrack ?? target.getBoundingClientRect().top + window.scrollY - (target.matches("[data-audit]") ? 0 : 80);
+  if (lenis && !instant) lenis.scrollTo(y, { onComplete: () => focusTarget(target) });
+  else {
+    window.scrollTo({ top: y, behavior: instant ? "instant" : "smooth" });
+    focusTarget(target);
+  }
+};
+document.addEventListener("click", (e) => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = (e.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+  const id = a ? decodeURIComponent(a.hash.slice(1)) : "";
+  const target = id ? document.getElementById(id) : null;
+  if (!target) return;
+  e.preventDefault();
+  history.pushState(null, "", `#${id}`);
+  scrollToTarget(target);
+});
+if (location.hash) {
+  const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (t && track?.scrollYFor(t) != null) scrollToTarget(t, true);
+}
 
 // ---------- nav turns solid once the page moves ----------
 const nav = document.querySelector<HTMLElement>("[data-nav]")!;
@@ -60,10 +103,7 @@ if (dialog && rdBody && rdTitle && rdGoto && typeof dialog.showModal === "functi
     e.preventDefault();
     dialog.close();
     const target = document.querySelector(rdGoto.getAttribute("href") || "");
-    if (target instanceof HTMLElement) {
-      if (lenis) lenis.scrollTo(target, { offset: -96 });
-      else target.scrollIntoView();
-    }
+    if (target instanceof HTMLElement) scrollToTarget(target);
   });
 }
 

@@ -17,7 +17,7 @@
   .skip,
   .audit,
   .receipt-dialog,
-  .tally-skip,
+  .hero-scene,
   .compare-controls,
   .compare-handle,
   .stages-block,
@@ -26,15 +26,10 @@
     display: none !important;
   }
   .hero,
-  .hero-stage {
+  .hero-text {
     height: auto !important;
     min-height: 0 !important;
-  }
-  .hero.gl-on .name {
-    color: #111 !important;
-  }
-  .hero-inner {
-    padding-top: 0;
+    padding-top: 0 !important;
   }
   .name {
     font-size: 48pt !important;

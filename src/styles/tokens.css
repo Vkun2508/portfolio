@@ -70,3 +70,10 @@
   /* shape */
   --radius: 0;
 }
+
+/* captions carry much of this page's evidence; on phones and tablets they read one step larger */
+@media (max-width: 1023px) {
+  :root {
+    --fs-5: 0.9375rem;
+  }
+}

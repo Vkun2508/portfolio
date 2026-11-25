@@ -67,35 +67,61 @@
 
     <main id="top">
       <!-- ============ HERO ============ -->
-      <section class="hero wrap" aria-labelledby="name">
-        <h1 id="name" class="name"><span class="line">Vinochan</span> <span class="line">Rajesh</span></h1>
-
-        <div class="hero-foot">
-          <div class="hero-copy">
-            <p class="lede">
-              B.Tech CSE (AI/ML) student at RV University, Bengaluru. I build machine-learning
-              systems and ship them as working apps.
-            </p>
-            <p class="hook">Resumes are easy to inflate, so I audited mine.</p>
-            <p class="hook-sub">Ten of its claims, flagged in the format of LegalLens (the contract-risk tool I built) and each checked against a receipt you can open.</p>
-            <div class="actions">
-              <a class="btn" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume</a>
-              <a class="btn btn-quiet" href="#audit">Watch the audit</a>
+      <section class="hero" aria-labelledby="name" data-hero>
+        <div class="hero-text wrap">
+          <!-- The resume, audited: the real page with its ten claims flagged where they sit in the PDF and
+               stamped in the margin. Decorative here; every claim is on the page again below, in words,
+               beside its receipt. -->
+          <div class="hero-scene" aria-hidden="true">
+            <div class="hero-carry">
+              <div class="slip slip-resume" data-carry>
+                <div class="slip-body">
+                  <picture>
+                    <source type="image/avif" srcset="/img/resume-page-1000.avif 1000w, /img/resume-page-2000.avif 2000w" sizes="(min-width: 1024px) 46vw, 86vw" />
+                    <img src="/img/resume-page-1000.webp" srcset="/img/resume-page-1000.webp 1000w, /img/resume-page-2000.webp 2000w" sizes="(min-width: 1024px) 46vw, 86vw" width="1000" height="1415" alt="" fetchpriority="low" decoding="async" />
+                  </picture>
+                  <span class="hshade"></span>
+                  <span class="hmark" style="left: 11.9%; top: 22.7%; width: 59.4%; height: 1.2%"></span>
+                  <span class="hmark" style="left: 72.3%; top: 22.7%; width: 19.8%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 11.9%; top: 24.1%; width: 4.8%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 69.7%; top: 32.0%; width: 24.2%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 11.9%; top: 33.4%; width: 16.9%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 67.1%; top: 37.4%; width: 26.0%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 83.4%; top: 40.5%; width: 10.0%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 11.9%; top: 41.9%; width: 11.7%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 11.9%; top: 46.0%; width: 20.1%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 36.2%; top: 49.0%; width: 54.6%; height: 1.2%"></span>
+                  <span class="hmark" style="left: 11.9%; top: 50.4%; width: 49.6%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 18.3%; top: 71.7%; width: 62.9%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 33.3%; top: 81.2%; width: 34.9%; height: 1.1%"></span>
+                  <span class="hmark" style="left: 7.9%; top: 82.6%; width: 21.1%; height: 1.1%"></span>
+                  <span class="hstamp" data-status="request" data-stamp="On request" style="left: 94.5%; top: 22.02%; --rot: -4deg; --sd: 950ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 24.92%; --rot: -2deg; --sd: 1070ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 31.25%; --rot: -5deg; --sd: 1190ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 36.71%; --rot: -3deg; --sd: 1310ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Understated" style="left: 94.5%; top: 39.79%; --rot: -4deg; --sd: 1430ms"></span>
+                  <span class="hstamp" data-status="request" data-stamp="On request" style="left: 94.5%; top: 45.24%; --rot: -2deg; --sd: 1550ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 48.32%; --rot: -5deg; --sd: 1670ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 70.96%; --rot: -3deg; --sd: 1790ms"></span>
+                  <span class="hstamp" data-status="pending" data-stamp="Pending" style="left: 94.5%; top: 80.49%; --rot: -4deg; --sd: 1910ms"></span>
+                  <span class="hstamp" data-status="verified" data-stamp="Verified" style="left: 94.5%; top: 84.79%; --rot: -2deg; --sd: 2030ms"></span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <aside class="tally" aria-labelledby="tally-title">
-            <p id="tally-title" class="tally-title">On the resume</p>
-            <ul class="tally-list">
-              <li><a href="#r-isp">Hybrid ISP</a><span>camera pipeline, 1st place</span><em class="mini-stamp ms-verified">2 of 3 verified</em></li>
-              <li><a href="#r-legal">LegalLens</a><span>contract-risk NLP</span><em class="mini-stamp ms-verified">2 of 2 verified</em></li>
-              <li><a href="#r-neralu">Neralu</a><span>heatwave calls, Hack4SDG finalist</span><em class="mini-stamp ms-verified">1 of 2 verified</em></li>
-              <li><a href="#r-kaavalu">Kaavalu</a><span>scam-call guard, SIH entry</span><em class="mini-stamp ms-pending">Pending</em></li>
-              <li><a href="#r-paper">IEEE paper</a><span>LSTM stock prediction</span><em class="mini-stamp ms-verified">Verified</em></li>
-              <li><a href="#record">Kalpavikas 2.0</a><span>RVU App Lab and Ideathon</span><em class="mini-stamp ms-verified">Verified</em></li>
-            </ul>
-            <p class="tally-note">Audit, 25 Nov 2026: <strong>7 of 10 claims verified</strong>, 2 on request, 1&nbsp;pending.</p>
-          </aside>
+          <h1 id="name" class="name"><span class="line">Vinochan</span> <span class="line">Rajesh</span></h1>
+          <div class="hero-copy">
+            <p class="lede">B.Tech CSE (AI/ML) student at RV University, Bengaluru. I build machine-learning systems and ship them as working apps.</p>
+            <p class="hook">Resumes are easy to inflate, so I audited mine. <span>Ten claims, flagged the way LegalLens (the contract-risk tool I built) flags a contract, and each checked against a receipt you can open.</span></p>
+          </div>
+          <div class="hero-act">
+            <p class="hero-audit">Audit, 25 Nov 2026: <strong>7 of 10 claims verified</strong>, 2 on request, 1&nbsp;pending.</p>
+            <div class="actions">
+              <a class="btn" href="/Vinochan_Rajesh_Resume.pdf" download>Download resume (PDF)</a>
+              <a class="hero-link" href="#audit">Watch the audit</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -116,7 +142,7 @@
                       <source type="image/avif" srcset="/img/legallens-note-360.avif 360w, /img/legallens-note-720.avif 720w" sizes="(min-width: 1024px) 30vw, 80vw" />
                       <img src="/img/legallens-note-360.webp" srcset="/img/legallens-note-360.webp 360w, /img/legallens-note-720.webp 720w" sizes="(min-width: 1024px) 30vw, 80vw" width="720" height="440" loading="lazy" decoding="async" alt="A LegalLens note on a contract clause: High, review closely; Automatic renewal; Matched 'renews automatically'; section 2.1, characters 407 to 606." />
                     </picture>
-                    <figcaption>LegalLens, flagging a contract clause. Below, the same note on my resume.</figcaption>
+                    <figcaption>LegalLens, flagging a contract clause. Next, the same note on my resume.</figcaption>
                   </figure>
                 </li>
                 <li class="claim" data-claim="isp-win" data-status="request">
@@ -219,11 +245,16 @@
       </section>
 
       <!-- ============ PROJECTS WITH RECEIPTS ============ -->
-      <section id="work" class="work" aria-labelledby="work-title">
+      <section id="work" class="work" aria-labelledby="work-title" data-track>
+        <!-- On wide screens track.ts pins the stage and slides the projects sideways; otherwise (and
+             without JS or with reduced motion) the stage and rail are layout-free and the projects stack. -->
+        <div class="track-stage">
         <div class="wrap work-head">
           <h2 id="work-title" class="section-title">Projects, with receipts</h2>
           <p>Four projects from 2026, newest first. Team projects say who did what.</p>
+          <p class="track-count" aria-hidden="true" data-track-count></p>
         </div>
+        <div class="track-rail" data-track-rail>
 
         <!-- Hybrid ISP -->
         <article id="r-isp" class="project isp wrap" aria-labelledby="isp-title">
@@ -280,6 +311,7 @@
           <div class="receipts receipts-isp">
             <figure id="receipt-isp-psnr" class="receipt receipt-table">
               <p class="receipt-label"><span class="chip chip-verified">Verified</span> 29.84 dB vs 25.40 dB</p>
+              <a class="receipt-open" href="#receipt-isp-psnr" data-receipt="isp-psnr">Open the receipt</a>
               <table>
                 <caption>Mean over 26 held-out images from 5 phones (SIDD), from <code>results/benchmarks.json</code></caption>
                 <thead><tr><th scope="col">Pipeline</th><th scope="col">PSNR (dB)</th><th scope="col">SSIM</th><th scope="col">ΔE</th></tr></thead>
@@ -294,6 +326,7 @@
             </figure>
             <figure id="receipt-isp-demo" class="receipt receipt-shot">
               <p class="receipt-label"><span class="chip chip-verified">Verified</span> Live demo</p>
+              <a class="receipt-open" href="#receipt-isp-demo" data-receipt="isp-demo">Open the receipt</a>
               <a href="https://vkun05-hybrid-isp.hf.space" target="_blank" rel="noopener" class="shot-link">
                 <picture>
                   <source type="image/avif" srcset="/img/isp-demo-800.avif 800w, /img/isp-demo-1440.avif 1440w" sizes="(min-width: 1024px) 40vw, 92vw" />
@@ -348,6 +381,7 @@
             <div class="receipts receipts-legal">
               <figure id="receipt-legal-tests" class="receipt receipt-log">
                 <p class="receipt-label"><span class="chip chip-verified">Understated</span> 99 passed in 1.58 s</p>
+                <a class="receipt-open" href="#receipt-legal-tests" data-receipt="legal-tests">Open the receipt</a>
                 <div class="terminal">
                   <p class="t-dim">LegalLens · 25 Nov 2026, 03:14 IST · Python 3.14.2 · pytest 9.2.0 · commit ef4192b</p>
                   <p>&gt; python -m pytest -q</p>
@@ -358,6 +392,7 @@
               </figure>
               <figure id="receipt-legal-cats" class="receipt receipt-list">
                 <p class="receipt-label"><span class="chip chip-verified">Verified</span> 11 risk categories</p>
+                <a class="receipt-open" href="#receipt-legal-cats" data-receipt="legal-cats">Open the receipt</a>
                 <ol class="cats">
                   <li><span>Arbitration and waived rights</span><em>high</em></li>
                   <li><span>One-sided changes</span><em>high</em></li>
@@ -396,6 +431,7 @@
             </figure>
             <figure id="receipt-neralu-fixes" class="receipt receipt-shot">
               <p class="receipt-label"><span class="chip chip-verified">Verified</span> My part, merged</p>
+              <a class="receipt-open" href="#receipt-neralu-fixes" data-receipt="neralu-fixes">Open the receipt</a>
               <a href="https://github.com/Priyanshu-senapati/Neralu/pull/20/commits" target="_blank" rel="noopener" class="shot-link">
                 <picture>
                   <source type="image/avif" srcset="/img/neralu-pr-900.avif 900w, /img/neralu-pr-1600.avif 1600w" sizes="(min-width: 1024px) 36vw, 92vw" />
@@ -437,6 +473,9 @@
             </figure>
           </div>
         </article>
+        </div>
+        <div class="track-bar" aria-hidden="true"><span data-track-bar></span></div>
+        </div>
       </section>
 
       <!-- ============ PAPER ============ -->

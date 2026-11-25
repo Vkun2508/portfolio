@@ -1,14 +1,31 @@
 /* =========================================================================
-   Hero
+   Hero: the resume, audited
+   The name across the top; the copy and the one action on the left; on the right the real resume page,
+   large: its ten claims flagged where they sit in the PDF and stamped in the margin. Without JS or with reduced motion this is the whole hero, still. hero.ts adds the tilt
+   and the hand-off: on wide screens the page glides on into the audit's lens below.
    ========================================================================= */
 .hero {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  align-content: start;
-  min-height: min(92svh, 980px);
-  padding-top: calc(64px + env(safe-area-inset-top) + clamp(20px, 4vh, 56px));
-  padding-bottom: clamp(24px, 4vh, 56px);
+  position: relative;
+  z-index: 3; /* above the audit while the resume page glides into it */
 }
+.hero-text {
+  --hero-top: clamp(20px, 4.5vh, 48px);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: var(--s-4);
+  min-height: 100svh;
+  padding-top: calc(64px + env(safe-area-inset-top) + var(--hero-top));
+  padding-bottom: clamp(24px, 4.5vh, 48px);
+}
+.hero .name,
+.hero-copy,
+.hero-act {
+  position: relative;
+  z-index: 2;
+}
+
 .name {
   font-family: var(--display);
   font-weight: 700;
@@ -23,125 +40,251 @@
   display: block;
   white-space: nowrap;
 }
-@media (max-width: 599px) {
-  .name {
-    font-stretch: 87.5%;
-    font-size: calc((100vw - 2 * var(--gutter)) / 5);
+.hero .name {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+/* wide screens: the name on one line across the top ("VINOCHAN RAJESH" is 12.56em), so the page gets the screen */
+@media (min-width: 1024px) {
+  .hero .name {
+    font-size: calc((min(100vw, 1440px) - 2 * var(--gutter)) / 12.6);
+    white-space: nowrap;
+  }
+  .hero .name .line {
+    display: inline;
   }
 }
-.hero-foot {
+.hero-copy {
+  grid-column: 1 / span 4;
   grid-row: 2;
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--s-4);
-  row-gap: var(--s-6);
-  align-items: start;
-  margin-top: var(--s-6);
-}
-.hero-copy {
-  grid-column: 1 / span 7;
-  display: grid;
-  gap: var(--s-4);
+  gap: var(--s-3);
+  align-content: start;
+  margin-top: clamp(var(--s-4), 5vh, var(--s-7));
 }
 .lede {
   font-size: var(--fs-3);
   line-height: 1.35;
   max-width: 34ch;
   text-wrap: balance;
+  color: var(--muted);
+}
+.hero .lede,
+.hook {
+  font-size: clamp(1.0625rem, 0.85rem + 0.45vw, 1.3125rem);
+  line-height: 1.45;
+  max-width: 40ch;
+}
+.hero .lede {
+  color: var(--ink);
 }
 .hook {
-  font-size: var(--fs-3);
-  line-height: 1.35;
   font-weight: 600;
-  max-width: 34ch;
+  color: var(--ink);
 }
-.hook-sub {
-  margin-top: calc(-1 * var(--s-3));
+.hook span {
+  font-weight: 400;
   color: var(--muted);
 }
-.lede {
-  color: var(--muted);
-}
-.tally {
-  grid-column: 9 / span 4;
+.hero-act {
+  grid-column: 1 / span 4;
+  grid-row: 3;
   display: grid;
-  gap: var(--s-3);
-  padding: var(--s-4);
-  background: var(--surface);
+  gap: var(--s-4);
+  align-content: start;
+  margin-top: clamp(var(--s-5), 5vh, var(--s-7));
 }
-.tally-title {
-  font-weight: 600;
-}
-.tally-list {
-  display: grid;
-  gap: 2px;
-}
-.tally-list li {
-  display: grid;
-  grid-template-columns: 1fr auto;
+.hero-act .actions {
   align-items: center;
-  column-gap: var(--s-3);
-  padding: 6px 12px;
-  background: var(--raise);
+  gap: var(--s-3) var(--s-5);
 }
-.tally-list li span {
-  grid-column: 1;
-}
-.tally-list li a {
-  grid-column: 1;
-}
-.mini-stamp {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  padding: 0.3em 0.55em 0.22em;
-  font-family: var(--display);
-  font-style: normal;
-  font-weight: 700;
-  font-stretch: 87.5%;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  border: 2px solid currentColor;
-  transform: rotate(-4deg);
-}
-.ms-verified {
-  color: var(--accent);
-}
-.ms-pending {
-  color: var(--muted);
-  border-style: dashed;
-}
-.tally-list a {
+.hero-link {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-block: -12px;
   font-weight: 600;
-  text-decoration: none;
-}
-.tally-list a:hover {
   text-decoration: underline;
+  text-underline-offset: 5px;
 }
-.tally-list span {
-  font-size: var(--fs-5);
+.hero-audit {
+  font-size: 1rem;
   color: var(--muted);
+  max-width: 36ch;
 }
-.tally-note {
-  font-size: var(--fs-5);
-  color: var(--muted);
-}
-.tally-note strong {
-  color: var(--ink);
+.hero-audit strong {
   font-weight: 600;
+  color: var(--ink);
 }
-@media (max-width: 900px) {
-  .hero {
-    min-height: 0;
+
+/* the scene: the columns right of the copy, under the name; the page is laid out in it in container
+   units and runs on past the bottom of the screen */
+.hero-scene {
+  grid-column: 5 / -1;
+  grid-row: 2 / -1;
+  position: relative;
+  min-height: 0;
+  margin-top: clamp(var(--s-4), 5vh, var(--s-7));
+  margin-right: calc(-1 * var(--gutter));
+  overflow-x: clip; /* never widens the page; y stays open so the page can run on and glide down */
+  pointer-events: none;
+}
+.hero-carry {
+  position: absolute;
+  inset: 0;
+  z-index: 3; /* the page glides in front of everything on its way into the audit */
+  container-type: size;
+  perspective: 1800px;
+  perspective-origin: 40% 10%;
+}
+
+.slip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  transform: translate(-50%, -50%) translateZ(var(--z, 0px)) rotateZ(var(--rz, 0deg)) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
+  animation: slip-in 1000ms var(--ease-expo) backwards;
+}
+@keyframes slip-in {
+  from {
+    opacity: 0;
+    translate: 0 6vh -400px;
   }
-  .hero-copy,
-  .tally {
-    grid-column: 1 / -1;
+}
+.slip-resume {
+  --pw: var(--w); /* the page's width; hero.ts sets it in px when it resizes the page */
+  --w: min(78cqw, 740px);
+  /* the page's left edge a little in from the scene's, its top edge at the scene's top */
+  --x: calc(var(--s-6) + var(--w) / 2);
+  --y: calc(var(--w) * 0.7073);
+  --rz: -2deg;
+  --rx: 7deg;
+  --ry: -5deg;
+  transform-style: preserve-3d;
+}
+.slip-resume .slip-body {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: thud 180ms var(--ease-out) 1040ms;
+}
+.slip-resume img {
+  width: 100%;
+  background: #fff;
+}
+/* light falls from the top left; a neutral shade over the photo, not a fill */
+.hshade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, rgb(0 0 0 / 0) 45%, rgb(0 0 0 / 0.2) 100%);
+  pointer-events: none;
+}
+
+/* each claim flagged in LegalLens's red where it sits in the PDF's text layer, its verdict stamped in
+   the margin level with it (positions from src/data/claims.json, the same rule as the audit) */
+.hmark {
+  position: absolute;
+  background: rgb(194 58 47 / 0.13);
+  box-shadow: inset 0 calc(-1 * max(1px, calc(var(--pw) * 0.003))) 0 #c23a2f; /* LegalLens's underline */
+  animation: mark-in 400ms var(--ease-out) 650ms backwards;
+}
+@keyframes mark-in {
+  from {
+    opacity: 0;
+  }
+}
+.hstamp {
+  position: absolute;
+  padding: 0.3em 0.55em 0.22em;
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 87.5%;
+  font-size: max(9px, calc(var(--pw) * 0.022));
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--c-stamp);
+  background: #fff;
+  border: max(1.5px, calc(var(--pw) * 0.003)) solid currentColor;
+  transform: rotate(var(--rot, -4deg));
+  opacity: 0.92;
+  animation: stamp-land 300ms cubic-bezier(0.2, 1.3, 0.4, 1) var(--sd) backwards;
+}
+.hstamp::before {
+  content: attr(data-stamp); /* printed on the page: part of the picture, not page text */
+}
+.hstamp[data-status="request"] {
+  color: var(--c-stamp-dark);
+}
+.hstamp[data-status="pending"] {
+  color: var(--c-stamp-muted);
+  border-style: dashed;
+}
+
+/* phones and tablets: one column; between the name and the copy, a close look at three claims and
+   their stamps at reading size */
+@media (max-width: 1023px) {
+  .hero-text {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+    min-height: 0;
+    padding-bottom: var(--s-6);
+  }
+  .hero .name {
+    grid-row: 1;
+  }
+  .hero-scene {
+    grid-column: 1;
+    grid-row: 2;
+    height: clamp(170px, 24svh, 280px);
+    margin: var(--s-4) calc(-1 * var(--gutter)) 0;
+    overflow: hidden;
+  }
+  .hero-copy {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: var(--s-4);
+  }
+  .hero-act {
+    grid-column: 1;
+    grid-row: 4;
+    align-content: start;
+  }
+  .hero-act .actions {
+    order: -1;
+  }
+  /* the page at about twice the screen's width, framed on the ISP and LegalLens lines and the margin */
+  .slip-resume {
+    --w: 200cqw;
+    --x: calc(50% - 74cqw);
+    --y: calc(50% + 39.6cqw);
+    --rz: -1.5deg;
+    --rx: 0deg;
+    --ry: 0deg;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .slip-resume {
+    --w: 150cqw;
+    --x: calc(50% - 50cqw);
+    --y: calc(50% + 26cqw);
+  }
+}
+@media (max-width: 599px) {
+  .name,
+  .hero .name {
+    font-stretch: 87.5%;
+    font-size: calc((100vw - 2 * var(--gutter)) / 5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slip,
+  .slip-body,
+  .hmark,
+  .hstamp {
+    animation: none;
   }
 }
 
@@ -553,6 +696,10 @@ a:not(.btn):not(.nav-mark):hover {
   transform-origin: 0 0;
   transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0) scale(var(--s, 1));
   /* no will-change: a promoted layer is drawn once at 1x and then blurred by the zoom */
+}
+/* while the hero's copy of the page is still flying in (hero.ts), the real sheet waits unseen */
+.audit.is-scene .sheet.is-awaiting {
+  opacity: 0;
 }
 .audit.is-scene .lens-caption {
   padding: var(--s-2) var(--s-3);
@@ -991,6 +1138,7 @@ a:not(.btn):not(.nav-mark):hover {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--fs-4);
+  font-variant-numeric: tabular-nums; /* the PSNR, SSIM and ΔE columns line up digit for digit */
 }
 .receipt-table caption {
   caption-side: bottom;
@@ -1179,6 +1327,306 @@ a:not(.btn):not(.nav-mark):hover {
   .call-events {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================================================================
+   Projects, sideways (track.ts adds .is-track on wide screens when every panel fits)
+   Without it the stage and the rail take no part in layout and the projects stack as above.
+   ========================================================================= */
+.track-stage,
+.track-rail {
+  display: contents;
+}
+.track-count,
+.track-bar,
+.receipt-open,
+.receipt-dialog .receipt-open {
+  display: none;
+}
+
+.work.is-track {
+  --panel: 86vw;
+  --panel-gap: var(--s-5);
+  position: relative;
+  padding-top: 0;
+}
+.work.is-track .track-stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* the rail is far wider than the stage; it must not size it */
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  row-gap: clamp(12px, 2.4vh, var(--s-4));
+  height: 100svh;
+  padding-top: calc(64px + clamp(12px, 2.4vh, var(--s-4)));
+  padding-bottom: clamp(12px, 2.4vh, var(--s-4));
+  overflow: hidden;
+}
+.work.is-track .work-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  column-gap: var(--s-4);
+}
+.work.is-track .work-head .section-title {
+  font-size: var(--fs-3);
+}
+.work.is-track .track-count {
+  display: block;
+  font-size: var(--fs-5);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.work.is-track .track-count b {
+  color: var(--accent);
+  font-weight: 700;
+}
+.work.is-track .track-rail {
+  display: flex;
+  gap: var(--panel-gap);
+  min-height: 0;
+  padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+}
+.work.is-track .track-bar {
+  display: block;
+  height: 2px;
+  margin-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  background: var(--line);
+}
+.work.is-track .track-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+/* each project is one panel: who and what on the left, the picture and the receipts on the right */
+.work.is-track .project {
+  flex: 0 0 var(--panel);
+  width: var(--panel);
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  padding: clamp(var(--s-3), 3.5vh, var(--s-5));
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  /* rows grow with their content, so a panel that does not fit shows as overflow and track.ts backs off */
+  grid-template-rows: auto auto 1fr;
+  column-gap: var(--s-6);
+  row-gap: clamp(var(--s-3), 2.2vh, var(--s-4));
+  align-content: start;
+  overflow: hidden;
+}
+.work.is-track .kaavalu-inner,
+.work.is-track .project-body,
+.work.is-track .legal-grid,
+.work.is-track .legal-left,
+.work.is-track .neralu-grid {
+  display: contents;
+}
+.work.is-track .project-head {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-3);
+  align-content: start;
+}
+.work.is-track .project-head .title,
+.work.is-track .project-head .summary,
+.work.is-track .project-head .meta {
+  grid-column: auto;
+  grid-row: auto;
+}
+.work.is-track .project-head .title {
+  font-size: clamp(2rem, 1rem + 2vw + 1vh, 4rem);
+}
+.work.is-track .project-head .summary {
+  font-size: var(--fs-4);
+  line-height: 1.5;
+  color: var(--muted);
+}
+.work.is-track .pb-main,
+.work.is-track .legal-left-body,
+.work.is-track .neralu-part {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  padding: 0;
+  gap: var(--s-2);
+}
+.work.is-track .points,
+.work.is-track .neralu-part p {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+@media (max-height: 820px) {
+  .work.is-track .points,
+  .work.is-track .neralu-part p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .work.is-track .project-head {
+    gap: var(--s-2);
+  }
+}
+.work.is-track .project-body > .actions {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
+}
+.work.is-track .project-body > .actions,
+.work.is-track .legal-left-body .actions,
+.work.is-track .neralu-part .actions {
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  background: none;
+}
+
+/* the picture */
+.work.is-track .compare,
+.work.is-track .legal-shot,
+.work.is-track .neralu-shot,
+.work.is-track .call-figure {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  margin: 0;
+  min-height: 0;
+  align-self: start;
+}
+.work.is-track .kaavalu .call-figure {
+  grid-row: 1 / 4;
+}
+.work.is-track .kaavalu {
+  align-content: center; /* no receipts yet (results pending): the panel sits its content in the middle */
+}
+.work.is-track .compare.is-live {
+  display: block;
+}
+.work.is-track .compare.is-live .compare-frame {
+  width: auto;
+  max-width: 100%;
+  height: min(40svh, 26vw);
+  max-height: none;
+}
+.work.is-track .compare.is-live .compare-controls {
+  flex-direction: row;
+  align-items: center;
+  margin-top: var(--s-3);
+}
+.work.is-track .compare.is-live .seg {
+  display: flex;
+}
+.work.is-track .compare.is-live .seg legend {
+  float: left;
+  margin: 0 var(--s-3) 0 0;
+}
+.work.is-track .compare.is-live .seg label + label span {
+  margin-left: 2px;
+}
+.work.is-track .compare.is-live .seg span {
+  width: auto;
+}
+.work.is-track .compare figcaption,
+.work.is-track .compare-note,
+.work.is-track .compare-readout {
+  display: none;
+}
+/* explicit heights: the fit check runs before these lazy images load */
+.work.is-track .legal-shot img {
+  width: auto;
+  height: min(44svh, 30vw);
+  aspect-ratio: 780 / 820;
+}
+.work.is-track .neralu-shot img {
+  width: auto;
+  height: min(42svh, 24vw);
+  aspect-ratio: 1440 / 863;
+}
+.work.is-track .legal-shot figcaption,
+.work.is-track .neralu-shot figcaption {
+  max-width: 60ch;
+}
+.work.is-track .call-events {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* the receipts: compact cards that open the full receipt */
+.work.is-track .receipts,
+.work.is-track .neralu-grid > .receipt {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  margin: 0;
+}
+.work.is-track .receipts {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--s-3);
+}
+.work.is-track .receipt {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  padding: var(--s-3);
+  background: var(--raise);
+  transition: background-color var(--dur-2) var(--ease-out);
+}
+.work.is-track .receipt > :not(.receipt-label):not(.receipt-open):not(.shot-link) {
+  display: none;
+}
+.work.is-track .receipt .receipt-label {
+  grid-column: 1;
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-size: var(--fs-5);
+  white-space: nowrap;
+}
+.work.is-track .receipt .shot-link {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 72px;
+  pointer-events: none;
+}
+.work.is-track .receipt .shot-link img {
+  height: 60px;
+  object-fit: cover;
+  object-position: top left;
+}
+.work.is-track .receipt-open {
+  display: inline-flex;
+  grid-column: 1;
+  font-size: var(--fs-5);
+  font-weight: 600;
+  color: var(--muted);
+}
+.work.is-track .receipt-open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.work.is-track .receipt:hover {
+  background: #2b2c31;
+}
+.work.is-track .receipt:hover .receipt-open {
+  color: var(--ink);
+}
+.work.is-track .receipt:has(.receipt-open:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.work.is-track .receipt-open:focus-visible {
+  outline: none;
 }
 
 /* Paper */
@@ -1642,6 +2090,7 @@ a:not(.btn):not(.nav-mark):hover {
 .compare-readout dd {
   margin: 0;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 .compare-note {
   font-size: var(--fs-5);
