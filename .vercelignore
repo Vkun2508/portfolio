@@ -1,0 +1,7 @@
+# `vercel deploy` uploads the working folder and does not read .gitignore, so list the local-only
+# folders here. Vercel builds the site itself from the source (npm run build -> dist).
+.taste-skill
+graphify-out
+assets-src
+dist
+node_modules
